@@ -631,37 +631,19 @@
                             </div>
                             
                             <div class="form-group">
-                                <label for="country"><span data-i18n="form-country">國家/地區</span> <span class="required">*</span></label>
-                                <select id="country" name="國家地區" required>
-                                    <option value="" selected data-i18n="form-country-placeholder">請選擇...</option>
-                                    <option value="TW" data-i18n="form-country-tw">台灣 Taiwan</option>
-                                    <!--<option value="MY" data-i18n="form-country-my">馬來西亞 Malaysia (Kuala Lumpur)</option>-->
-                                </select>
+                                <label><span data-i18n="form-country">國家/地區</span> <span class="required">*</span></label>
+                                <input type="hidden" id="country" name="國家地區" value="台灣 Taiwan">
+                                <div id="country-cards" class="option-card-grid">
+                                    <button type="button" class="option-card active" data-country-code="TW" data-country-label="台灣 Taiwan" data-i18n="form-country-tw">台灣 Taiwan</button>
+                                </div>
                             </div>
-                            <!--
+
                             <div class="form-group">
-                                <label for="industry"><span data-i18n="form-industry">你的身分</span> <span class="required">*</span></label>
-                                <select id="industry" name="行業" required>
-                                    <option value="" data-i18n="form-industry-placeholder">請選擇...</option>
-                                    <option value="spiritual" data-i18n="form-industry-spiritual">身心靈導師</option>
-                                    <option value="beauty" data-i18n="form-industry-beauty">美容 / 美髮</option>
-                                    <option value="education" data-i18n="form-industry-education">教育 / 培訓</option>
-                                    <option value="insurance" data-i18n="form-industry-insurance">保險 / 金融</option>
-                                    <option value="realestate" data-i18n="form-industry-realestate">房地產</option>
-                                    <option value="consultant" data-i18n="form-industry-consultant">諮詢顧問</option>
-                                    <option value="freelancer" data-i18n="form-industry-freelancer">自由工作者</option>
-                                    <option value="coach" data-i18n="form-industry-coach">個人教練</option>
-                                    <option value="ecommerce" data-i18n="form-industry-ecommerce">電商 / 微商</option>
-                                    <option value="other" data-i18n="form-industry-other">其他</option>
-                                </select>
-                            </div>
-                            -->
-                            <div class="form-group">
-                                <label for="region"><span data-i18n="form-region">希望評估時間地點</span> <span class="required">*</span></label>
-                                <select id="region" name="評估地區" required>
-                                    <option value="" data-i18n="form-region-loading">載入中...</option>
-                                    <!-- 選項將從 Google Sheet 動態載入 -->
-                                </select>
+                                <label><span data-i18n="form-region">希望評估時間地點</span> <span class="required">*</span></label>
+                                <input type="hidden" id="region" name="評估地區" required>
+                                <div id="region-cards" class="option-card-grid">
+                                    <p class="option-card-message" data-i18n="form-region-loading">載入中...</p>
+                                </div>
                                 <small style="color: #999; font-size: 0.85rem; margin-top: 5px; display: block;" data-i18n="form-region-hint">
                                     💡 地點由系統自動更新
                                 </small>
@@ -672,13 +654,6 @@
                                 <input type="text" id="lineId" name="LINE_ID" data-i18n="form-line-placeholder" placeholder="請輸入您的 LINE ID">
                                 <small style="color: #666; font-size: 0.85rem; margin-top: 5px; display: block;" data-i18n="form-line-hint">💡 提供 LINE ID 讓我們能更快速為您服務</small>
                             </div>
-                            <!--
-                            <div class="form-group">
-                                <label for="whatsapp" data-i18n="form-whatsapp">WhatsApp 號碼（選填）</label>
-                                <input type="tel" id="whatsapp" name="WhatsApp號碼" data-i18n="form-whatsapp-placeholder" placeholder="+886 912 345 678">
-                                <small style="color: #666; font-size: 0.85rem; margin-top: 5px; display: block;" data-i18n="form-whatsapp-hint">💡 提供 WhatsApp 讓我們能透過多種方式聯繫您</small>
-                            </div>
-                            -->
                         </div>
                         <!--
                         <div class="form-section">

@@ -489,31 +489,8 @@ function initOrderForm() {
         // 準備表單資料
         const formData = new FormData(form);
         
-        // 🔄 獲取下拉選單的完整文字（而不是只有 value）
-        // 國家地區
-        const countrySelect = document.getElementById('country');
-        if (countrySelect && countrySelect.selectedIndex > 0) {
-            const countryText = countrySelect.options[countrySelect.selectedIndex].text;
-            formData.set('國家地區', countryText);
-        }
-        
-        // 行業
-        const industrySelect = document.getElementById('industry');
-        if (industrySelect && industrySelect.selectedIndex > 0) {
-            const industryText = industrySelect.options[industrySelect.selectedIndex].text;
-            formData.set('行業', industryText);
-        }
-        
-        // 評估地區（時間地點）
-        const regionSelect = document.getElementById('region');
-        let userRegion = '';
-        if (regionSelect && regionSelect.selectedIndex > 0) {
-            const selectedOption = regionSelect.options[regionSelect.selectedIndex];
-            const regionText = selectedOption.text;
-            
-            formData.set('評估地區', regionText);
-            userRegion = regionText; // 保存用于显示
-        }
+        const regionInput = document.getElementById('region');
+        const userRegion = regionInput ? regionInput.value : '';
         
         // 添加推廣代碼
         if (refCode) {
@@ -545,6 +522,7 @@ function initOrderForm() {
                 // 顯示成功頁面
                 showSuccessPage(userName, userRegion);
                 form.reset();
+                resetFormCardSelectors();
             } else {
                 console.error('❌ 提交失敗:', result.message);
                 alert('❌ 提交失敗，請稍後再試或直接聯繫我們的 WhatsApp/LINE\n\n錯誤: ' + result.message);
@@ -652,8 +630,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initVideoTracking();
     
-    // 🆕 初始化國家-地區聯動
-    initCountryRegionSync();
+    // 🆕 初始化國家-地區卡片選擇
+    initFormCardSelectors();
     
     // 🕒 初始化右上角時間地點選單
     initHeaderLocationSelect();
@@ -672,77 +650,134 @@ document.addEventListener('visibilitychange', () => {
     }
 });
 
+function getSelectedCountryCode() {
+    const activeCard = document.querySelector('#country-cards .option-card.active');
+    return activeCard ? activeCard.dataset.countryCode || 'TW' : 'TW';
+}
+
+function clearRegionSelection() {
+    const regionInput = document.getElementById('region');
+    const grid = document.getElementById('region-cards');
+    if (regionInput) {
+        regionInput.value = '';
+    }
+    if (grid) {
+        grid.querySelectorAll('.option-card').forEach(card => card.classList.remove('active'));
+    }
+}
+
+function selectRegionCard(card) {
+    const regionInput = document.getElementById('region');
+    const grid = document.getElementById('region-cards');
+    if (grid) {
+        grid.querySelectorAll('.option-card').forEach(item => item.classList.remove('active'));
+    }
+    card.classList.add('active');
+    if (regionInput) {
+        regionInput.value = card.dataset.regionText || card.textContent.trim();
+    }
+}
+
+function renderRegionCards(regions) {
+    const grid = document.getElementById('region-cards');
+    if (!grid) {
+        return;
+    }
+
+    grid.innerHTML = '';
+    regions.forEach(region => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'option-card';
+        button.dataset.regionId = region.id;
+        button.dataset.regionText = region.text;
+        button.textContent = region.text;
+        button.addEventListener('click', () => selectRegionCard(button));
+        grid.appendChild(button);
+    });
+}
+
+function resetFormCardSelectors() {
+    const countryInput = document.getElementById('country');
+    if (countryInput) {
+        countryInput.value = '台灣 Taiwan';
+    }
+    document.querySelectorAll('#country-cards .option-card').forEach(card => card.classList.remove('active'));
+    const twCard = document.querySelector('#country-cards .option-card[data-country-code="TW"]');
+    if (twCard) {
+        twCard.classList.add('active');
+    }
+    clearRegionSelection();
+    loadRegionCards('TW');
+}
+
+function initFormCardSelectors() {
+    const countryCards = document.getElementById('country-cards');
+    const regionCards = document.getElementById('region-cards');
+    if (!countryCards || !regionCards) {
+        console.warn('⚠️ 找不到國家或地區卡片元素');
+        return;
+    }
+
+    countryCards.querySelectorAll('.option-card').forEach(card => {
+        card.addEventListener('click', () => {
+            countryCards.querySelectorAll('.option-card').forEach(item => item.classList.remove('active'));
+            card.classList.add('active');
+
+            const countryInput = document.getElementById('country');
+            if (countryInput) {
+                countryInput.value = card.dataset.countryLabel || card.textContent.trim();
+            }
+
+            clearRegionSelection();
+            const countryCode = card.dataset.countryCode || 'TW';
+            loadRegionCards(countryCode);
+            loadHeaderLocationOptions(countryCode);
+        });
+    });
+
+    loadRegionCards('TW');
+    console.log('✅ 國家-地區卡片選擇已初始化');
+}
+
 // ========================================
 // 動態加載評估地點（從 Google Apps Script 獲取，根據國家）
 // ========================================
-async function loadRegionOptions(country = 'TW') {
+async function loadRegionCards(country = 'TW') {
+    const regionCards = document.getElementById('region-cards');
+    const regionInput = document.getElementById('region');
+
+    if (!regionCards) {
+        console.warn('⚠️ 找不到評估地區卡片元素');
+        return;
+    }
+
     try {
-        const regionSelect = document.getElementById('region');
-        
-        if (!regionSelect) {
-            console.warn('⚠️ 找不到評估地區選單元素');
-            return;
-        }
-        
         console.log('📍 正在載入評估地點選項...（國家: ' + country + '）');
-        
-        // 顯示載入中
-        regionSelect.innerHTML = '<option value="">載入中...</option>';
-        regionSelect.disabled = true;
-        
-        // 根據國家獲取對應的地點
+        regionCards.innerHTML = '<p class="option-card-message">載入中...</p>';
+        if (regionInput) {
+            regionInput.value = '';
+        }
+
         const response = await fetch(GOOGLE_SCRIPT_URL + '?action=getRegions&country=' + country);
         const result = await response.json();
-        
+
         if (result.success && result.regions && result.regions.length > 0) {
-            // 清空現有選項
-            regionSelect.innerHTML = '<option value="">請選擇...</option>';
-            
-            // 動態添加選項
-            result.regions.forEach(region => {
-                const option = document.createElement('option');
-                option.value = region.id;
-                option.textContent = region.text;
-                regionSelect.appendChild(option);
-            });
-            
-            regionSelect.disabled = false;
+            renderRegionCards(result.regions);
             console.log('✅ 成功載入 ' + result.regions.length + ' 個評估地點（' + country + '）');
         } else {
             console.warn('⚠️ 載入評估地點失敗，使用預設選項');
-            // 使用預設選項作為後備
-            if (country === 'MY') {
-                regionSelect.innerHTML = `
-                    <option value="">請選擇...</option>
-                    <option value="my1">待定 - 吉隆坡地點</option>
-                `;
-            } else {
-                regionSelect.innerHTML = `
-                    <option value="">請選擇...</option>
-                    <option value="tw1">待定 - 台灣地點</option>
-                `;
-            }
-            regionSelect.disabled = false;
+            const fallback = country === 'MY'
+                ? [{ id: 'my1', text: '待定 - 吉隆坡地點' }]
+                : [{ id: 'tw1', text: '待定 - 台灣地點' }];
+            renderRegionCards(fallback);
         }
     } catch (error) {
         console.error('❌ 載入評估地點錯誤:', error);
-        
-        // 出錯時使用預設選項
-        const regionSelect = document.getElementById('region');
-        if (regionSelect) {
-            if (country === 'MY') {
-                regionSelect.innerHTML = `
-                    <option value="">請選擇...</option>
-                    <option value="my1">待定 - 吉隆坡地點</option>
-                `;
-            } else {
-                regionSelect.innerHTML = `
-                    <option value="">請選擇...</option>
-                    <option value="tw1">待定 - 台灣地點</option>
-                `;
-            }
-            regionSelect.disabled = false;
-        }
+        const fallback = country === 'MY'
+            ? [{ id: 'my1', text: '待定 - 吉隆坡地點' }]
+            : [{ id: 'tw1', text: '待定 - 台灣地點' }];
+        renderRegionCards(fallback);
     }
 }
 
@@ -789,18 +824,8 @@ function initHeaderLocationSelect() {
         return;
     }
     
-    const countrySelect = document.getElementById('country');
-    const initialCountry = countrySelect && countrySelect.value ? countrySelect.value : 'TW';
-    
-    loadHeaderLocationOptions(initialCountry);
+    loadHeaderLocationOptions(getSelectedCountryCode());
     updateSelectWidth(locationSelect);
-    
-    if (countrySelect) {
-        countrySelect.addEventListener('change', () => {
-            const selectedCountry = countrySelect.value || 'TW';
-            loadHeaderLocationOptions(selectedCountry);
-        });
-    }
     
     locationSelect.addEventListener('change', () => updateSelectWidth(locationSelect));
 }
@@ -829,41 +854,6 @@ function updateSelectWidth(select) {
     const arrowSpace = 24; // 預留下拉箭頭空間
     
     select.style.width = `${Math.ceil(textWidth + paddingLeft + paddingRight + arrowSpace)}px`;
-}
-
-// ========================================
-// 監聽國家選擇變化，動態加載對應地點
-// ========================================
-function initCountryRegionSync() {
-    const countrySelect = document.getElementById('country');
-    const regionSelect = document.getElementById('region');
-    
-    if (!countrySelect || !regionSelect) {
-        console.warn('⚠️ 找不到國家或地區選單元素');
-        return;
-    }
-    
-    // 初始化：禁用評估地區選單，提示用户先选择国家
-    regionSelect.innerHTML = '<option value="">請先選擇國家...</option>';
-    regionSelect.disabled = true;
-    
-    // 監聽國家選擇變化
-    countrySelect.addEventListener('change', function() {
-        const selectedCountry = this.value;
-        console.log('🌍 國家已切換為:', selectedCountry);
-        
-        if (selectedCountry) {
-            // 重置並重新加載評估地點
-            regionSelect.value = '';
-            loadRegionOptions(selectedCountry);
-        } else {
-            // 清空評估地點
-            regionSelect.innerHTML = '<option value="">請先選擇國家...</option>';
-            regionSelect.disabled = true;
-        }
-    });
-    
-    console.log('✅ 國家-地區聯動已初始化');
 }
 
 // 添加急迫感效果

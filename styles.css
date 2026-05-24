@@ -1430,6 +1430,23 @@ body {
     padding: 8px;
 }
 
+.form-group.field-error .option-card-grid {
+    border: 2px solid #e74c3c;
+    border-radius: 10px;
+    padding: 8px;
+    background: rgba(231, 76, 60, 0.04);
+}
+
+.field-error-message {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin: 8px 0 0;
+}
+
+.form-group.field-error label {
+    color: #e74c3c;
+}
+
 /* 付款方式 */
 .payment-methods {
     display: flex;
@@ -1529,9 +1546,12 @@ body {
 }
 
 .submit-info-btn:disabled {
-    opacity: 0.6;
+    opacity: 1;
     cursor: not-allowed;
     transform: none;
+    box-shadow: none;
+    background: #b8b8b8;
+    color: #f5f5f5;
 }
 
 /* 購買按鈕 */

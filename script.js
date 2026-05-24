@@ -466,6 +466,10 @@ function initOrderForm() {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
+        if (!validateRegionSelection(true)) {
+            return;
+        }
+        
         // 驗證表單
         if (!form.checkValidity()) {
             form.reportValidity();
@@ -488,9 +492,11 @@ function initOrderForm() {
         
         // 準備表單資料
         const formData = new FormData(form);
-        
-        const regionInput = document.getElementById('region');
-        const userRegion = regionInput ? regionInput.value : '';
+        const countryValue = getCountryFormValue();
+        const regionValue = getRegionFormValue();
+        formData.set('國家地區', countryValue);
+        formData.set('評估地區', regionValue);
+        const userRegion = regionValue;
         
         // 添加推廣代碼
         if (refCode) {
@@ -531,11 +537,12 @@ function initOrderForm() {
             console.error('⚠️ 提交錯誤:', error);
             alert('❌ 網路錯誤，請檢查網路連接後重試');
         } finally {
-            // 恢復按鈕狀態
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = '<span>📝 提交資料</span>';
+            submitBtn.innerHTML = '<span data-i18n="form-submit">📝 提交資料</span>';
+            updateSubmitButtonState();
         }
     });
+
+    updateSubmitButtonState();
 }
 
 // 平滑滚动
@@ -655,6 +662,66 @@ function getSelectedCountryCode() {
     return activeCard ? activeCard.dataset.countryCode || 'TW' : 'TW';
 }
 
+let regionsLoading = true;
+
+function getCountryFormValue() {
+    const countryInput = document.getElementById('country');
+    return countryInput && countryInput.value.trim()
+        ? countryInput.value.trim()
+        : '台灣 Taiwan';
+}
+
+function getRegionFormValue() {
+    const regionInput = document.getElementById('region');
+    return regionInput ? regionInput.value.trim() : '';
+}
+
+function setRegionFieldError(hasError) {
+    const group = document.getElementById('region-form-group');
+    const errorEl = document.getElementById('region-error');
+    if (group) {
+        group.classList.toggle('field-error', hasError);
+    }
+    if (errorEl) {
+        errorEl.hidden = !hasError;
+    }
+}
+
+function getRegionValidationMessage() {
+    const errorEl = document.getElementById('region-error');
+    if (errorEl && errorEl.textContent.trim()) {
+        return errorEl.textContent.trim();
+    }
+    return '請選擇評估時間地點';
+}
+
+function updateSubmitButtonState() {
+    const submitBtn = document.getElementById('submitBtn');
+    if (!submitBtn) {
+        return;
+    }
+    submitBtn.disabled = regionsLoading || !getRegionFormValue();
+}
+
+function validateRegionSelection(showFeedback = false) {
+    if (regionsLoading) {
+        if (showFeedback) {
+            alert('地點載入中，請稍候再提交');
+        }
+        return false;
+    }
+
+    const isValid = Boolean(getRegionFormValue());
+    if (!isValid && showFeedback) {
+        setRegionFieldError(true);
+        alert(getRegionValidationMessage());
+    } else if (isValid) {
+        setRegionFieldError(false);
+    }
+
+    return isValid;
+}
+
 function clearRegionSelection() {
     const regionInput = document.getElementById('region');
     const grid = document.getElementById('region-cards');
@@ -664,6 +731,8 @@ function clearRegionSelection() {
     if (grid) {
         grid.querySelectorAll('.option-card').forEach(card => card.classList.remove('active'));
     }
+    setRegionFieldError(false);
+    updateSubmitButtonState();
 }
 
 function selectRegionCard(card) {
@@ -676,6 +745,8 @@ function selectRegionCard(card) {
     if (regionInput) {
         regionInput.value = card.dataset.regionText || card.textContent.trim();
     }
+    setRegionFieldError(false);
+    updateSubmitButtonState();
 }
 
 function renderRegionCards(regions) {
@@ -752,12 +823,16 @@ async function loadRegionCards(country = 'TW') {
         return;
     }
 
+    regionsLoading = true;
+    updateSubmitButtonState();
+
     try {
         console.log('📍 正在載入評估地點選項...（國家: ' + country + '）');
         regionCards.innerHTML = '<p class="option-card-message">載入中...</p>';
         if (regionInput) {
             regionInput.value = '';
         }
+        setRegionFieldError(false);
 
         const response = await fetch(GOOGLE_SCRIPT_URL + '?action=getRegions&country=' + country);
         const result = await response.json();
@@ -778,6 +853,9 @@ async function loadRegionCards(country = 'TW') {
             ? [{ id: 'my1', text: '待定 - 吉隆坡地點' }]
             : [{ id: 'tw1', text: '待定 - 台灣地點' }];
         renderRegionCards(fallback);
+    } finally {
+        regionsLoading = false;
+        updateSubmitButtonState();
     }
 }
 

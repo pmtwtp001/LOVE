@@ -766,6 +766,11 @@ function renderRegionCards(regions) {
         button.addEventListener('click', () => selectRegionCard(button));
         grid.appendChild(button);
     });
+
+    const firstCard = grid.querySelector('.option-card');
+    if (firstCard) {
+        selectRegionCard(firstCard);
+    }
 }
 
 function resetFormCardSelectors() {

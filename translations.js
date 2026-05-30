@@ -3,7 +3,7 @@ const translations = {
     // 繁體中文（默認）
     'zh-TW': {
         // 頂部橫幅
-        'countdown-banner-text': '⚡ 限時線上報名！免費評估截止',
+        'countdown-banner-text': '⚡ 限時報名！截止時間僅剩',
         
         // Hero Section
         'main-headline': '別再等記憶變差，現在就開始「大腦活化」！',
@@ -139,7 +139,7 @@ const translations = {
     
     // 简体中文
     'zh-CN': {
-        'countdown-banner-text': '⚡ 限时在线报名！免费评估截止',
+        'countdown-banner-text': '⚡ 限时报名！截止时间仅剩',
         'main-headline': '别再等记忆变差，现在就开始「大脑活化」！',
         'feature-1': '✅ 用「AI让大脑活化 × 记忆训练」建立每天的认知保健流程',
         'feature-2': '✅ 不需要昂贵器材、不需要医学背景，只要愿意跟着做',
@@ -253,7 +253,7 @@ const translations = {
     
     // English
     'en': {
-        'countdown-banner-text': '⚡ Limited Time Registration! Free Assessment Deadline',
+        'countdown-banner-text': '⚡ Limited Time Registration! Deadline in',
         'main-headline': 'Don\'t Wait for Memory Decline, Start "Brain Activation" Now!',
         'feature-1': '✅ Build daily cognitive health routines with "AI Brain Activation × Memory Training"',
         'feature-2': '✅ No expensive equipment or medical background needed, just follow along',

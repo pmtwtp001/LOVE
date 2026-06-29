@@ -130,8 +130,7 @@ const DEFAULT_GOOGLE_FORM_CONFIG = {
         industry: 'entry.828038711',
         region: 'entry.1586436660',
         lineId: 'entry.1922861190',
-        whatsapp: 'entry.1017645638',
-        newsletter: 'entry.1980319875'
+        whatsapp: 'entry.1017645638'
     }
 };
 
@@ -426,11 +425,6 @@ async function submitToGoogleForm(data) {
         }
         if (GOOGLE_FORM_CONFIG.fields.whatsapp && data.whatsapp && data.whatsapp !== '未提供') {
             formData.append(GOOGLE_FORM_CONFIG.fields.whatsapp, data.whatsapp);
-        }
-        
-        // 訂閱電子報（核取方塊）- 只有勾選時才傳送
-        if (GOOGLE_FORM_CONFIG.fields.newsletter && data.newsletter) {
-            formData.append(GOOGLE_FORM_CONFIG.fields.newsletter, '是');
         }
         
         console.log('📤 正在提交資料到 Google 表單...');

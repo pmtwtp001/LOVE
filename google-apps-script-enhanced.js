@@ -277,7 +277,6 @@ function doPost(e) {
     const customerRegionId = params['評估地區ID'] || '';  // 新增：地區ID
     const customerLineId = params['LINE_ID'] || params['LINE ID'] || '未提供';
     const customerWhatsapp = params['WhatsApp號碼'] || params['WhatsApp'] || '未提供';
-    const newsletter = params['訂閱電子報'] === 'on' ? '是' : '否';
     
     Logger.log('📧 準備發送郵件...');
     Logger.log('推廣代碼: ' + refCode);
@@ -313,7 +312,6 @@ function doPost(e) {
 評估地區：${customerRegion}
 LINE ID：${customerLineId}
 WhatsApp：${customerWhatsapp}
-訂閱電子報：${newsletter}
 
 推廣代碼：${refCode || '無（預設）'}
 

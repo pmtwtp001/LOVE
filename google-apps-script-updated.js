@@ -23,6 +23,10 @@ const SPREADSHEET_ID = '1cmLE1clkzQKeqdtLa-DS9JfSEg3wI6hr1egHRujdPiQ';  // ⚠�
 const SHEET_NAME = '推廣人員';  // Sheet 分頁名稱（第1個頁簽）
 const DEFAULT_EMAIL = 'jordantsai777@gmail.com';  // 預設郵箱（找不到推廣代碼時使用）
 const CACHE_DURATION = 600;  // 緩存時間（秒）- 10 分鐘
+const CUSTOMER_HEADERS = [
+  '報名時間', '客戶姓名', '電話號碼', '電子郵件',
+  '國家地區', '行業', '評估地點', 'LINE ID', 'WhatsApp', '推廣代碼'
+];
 
 // ========================================
 // 從 Google Sheet 讀取郵箱映射表（含緩存）
@@ -133,7 +137,6 @@ function doPost(e) {
     const customerRegion = params['評估地區'] || '';
     const customerLineId = params['LINE_ID'] || params['LINE ID'] || '未提供';
     const customerWhatsapp = params['WhatsApp號碼'] || params['WhatsApp'] || '未提供';
-    const newsletter = params['訂閱電子報'] === 'on' ? '是' : '否';
     
     // 記錄日誌
     Logger.log('📧 準備處理表單提交...');
@@ -157,17 +160,15 @@ function doPost(e) {
       
       if (!dataSheet) {
         dataSheet = spreadsheet.insertSheet('客戶報名記錄');
-        dataSheet.appendRow([
-          '時間戳記', '姓名', '電子郵件', '電話號碼', '國家地區', 
-          '行業', '評估地區', 'LINE ID', 'WhatsApp號碼', '推廣代碼'
-        ]);
+        dataSheet.appendRow(CUSTOMER_HEADERS);
       }
+      dataSheet.getRange(1, 1, 1, CUSTOMER_HEADERS.length).setValues([CUSTOMER_HEADERS]);
       
       dataSheet.appendRow([
         new Date(),
         customerName,
-        customerEmail,
         customerPhone,
+        customerEmail,
         customerCountry,
         customerIndustry,
         customerRegion,
@@ -199,7 +200,6 @@ function doPost(e) {
 評估地區：${customerRegion}
 LINE ID：${customerLineId}
 WhatsApp：${customerWhatsapp}
-訂閱電子報：${newsletter}
 
 推廣代碼：${refCode || '無（預設）'}
 

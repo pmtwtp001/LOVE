@@ -4,11 +4,11 @@
 
 | 版本 | 訴求 | 檔案 | 上線網址（GitHub Pages） |
 |------|------|------|---------------------------|
-| **A 主力** | 恐懼／需求：預防失智 | `index.html` | `https://pmtwtp001.github.io/LOVE/` |
+| **A 主力** | 恐懼／需求：預防失智 | `a/index.html` | `https://pmtwtp001.github.io/LOVE/a/` |
 | **B** | 權威／故事：失智可以改變嗎 | `b/index.html` | `https://pmtwtp001.github.io/LOVE/b/` |
 | **C** | 價值顛覆：大腦保養 | `c/index.html` | `https://pmtwtp001.github.io/LOVE/c/` |
 
-舊路徑 `authority.html`、`brain-care.html` 會自動轉到 `b/`、`c/`（保留 `?ref=` 等參數）。
+根目錄 `https://pmtwtp001.github.io/LOVE/` 會轉到 `a/`（保留 `?ref=`）。對外投放請直接用 `/a/`、`/b/`、`/c/`。
 
 三頁共用：`styles.css`、`script.js`、`translations.js`、同一個 `GOOGLE_SCRIPT_URL`（Google Sheet / 郵件邏輯不變）。
 
@@ -18,11 +18,10 @@
 
 ```text
 Love/
-├── index.html              # A 版（根網址最短）
+├── index.html              # 轉址 → a/
+├── a/index.html            # A 版 → /LOVE/a/
 ├── b/index.html            # B 版 → /LOVE/b/
 ├── c/index.html            # C 版 → /LOVE/c/
-├── authority.html          # 轉址 → b/
-├── brain-care.html         # 轉址 → c/
 ├── styles.css
 ├── script.js
 ├── translations.js
@@ -50,7 +49,7 @@ Love/
 
 ## 各版文案定位（HTML 內 `page-variant-headline`）
 
-### A 版｜`index.html`｜`data/page-a/`
+### A 版｜`a/index.html`｜`data/page-a/`
 
 - **主標：** 你害怕的，可能不是變老。是有一天，忘了自己最愛的人。
 - **目的：** 冷流量、預防失智、最高轉換（主力投放）
@@ -90,7 +89,7 @@ Love/
 
 ## 廣告／追蹤建議
 
-- A：`https://pmtwtp001.github.io/LOVE/?ref=xxx`  
+- A：`https://pmtwtp001.github.io/LOVE/a/?ref=xxx`  
 - B：`https://pmtwtp001.github.io/LOVE/b/?ref=xxx`  
 - C：`https://pmtwtp001.github.io/LOVE/c/?ref=xxx`  
 

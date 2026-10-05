@@ -1,168 +1,170 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A???憭望嚚澈?阡翩瘣餃飛??/title>
+    <title>A版｜預防失智｜身腦齡活學院</title>
     
-    <!-- Open Graph / 蝷曆漱慦??澈?汗 - LINE撠?芸? -->
+    <!-- Open Graph / 社交媒體分享預覽 - LINE專用優化 -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="雿拿??嚗?賭??航????憭抬?敹??芸楛???鈭箝?>
-    <meta property="og:description" content="?憭望???拚?憪?芯??撌梧??曉撠梯??箇洵銝甇乓?>
+    <meta property="og:title" content="你害怕的，可能不是變老。是有一天，忘了自己最愛的人。">
+    <meta property="og:description" content="預防失智、及早開始——為未來的自己，現在就踏出第一步。">
     <meta property="og:url" content="https://pmtwtp001.github.io/LOVE/a/">
     <meta property="og:image" content="https://pmtwtp001.github.io/LOVE/data/shared/med.jpg">
     <meta property="og:image:secure_url" content="https://pmtwtp001.github.io/LOVE/data/shared/med.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="AI頨怨朣⊥暑摮賊">
+    <meta property="og:image:alt" content="AI身腦齡活學院">
     
-    <!-- LINE撠?芸? -->
+    <!-- LINE專用優化 -->
     <meta name="line:card" content="summary_large_image">
-    <meta name="line:title" content="AI頨怨朣⊥暑摮賊 - ?犖?雿唾??>
-    <meta name="line:description" content="???芣?嚗I頨怨朣⊥暑摮賊嚗?100??隞祥嚗??遑T$2000???曉?勗??祥嚗?>
+    <meta name="line:title" content="AI身腦齡活學院 - 打造個人最佳腦力">
+    <meta name="line:description" content="限時優惠！AI身腦齡活學院，前100名無需付費，原價NT$2000元，現在報名免費！">
     <meta name="line:image" content="https://pmtwtp001.github.io/LOVE/data/shared/med.jpg">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI頨怨朣⊥暑摮賊 - ?犖?雿唾??>
-    <meta name="twitter:description" content="???芣?嚗I頨怨朣⊥暑摮賊嚗?100??隞祥嚗??遑T$2000???曉?勗??祥嚗?>
+    <meta name="twitter:title" content="AI身腦齡活學院 - 打造個人最佳腦力">
+    <meta name="twitter:description" content="限時優惠！AI身腦齡活學院，前100名無需付費，原價NT$2000元，現在報名免費！">
     <meta name="twitter:image" content="https://pmtwtp001.github.io/LOVE/data/shared/med.jpg">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://pmtwtp001.github.io/LOVE/a/">
     
     <!-- Additional meta tags for better social media recognition -->
-    <meta name="description" content="?憭望???拚?憪?摰單?嚗?賭??航????敹????鈭箝?>
-    <meta name="keywords" content="?憭望,???,?芯??撌?憭扯瘣餃?,頨怨朣⊥暑摮賊">
+    <meta name="description" content="預防失智、及早開始。你害怕的，可能不是變老，而是忘了最愛的人。">
+    <meta name="keywords" content="預防失智,及早開始,未來的自己,大腦活化,身腦齡活學院">
     
     <link rel="stylesheet" href="../styles.css">
     
-    <!-- 憸?頧賢?株?皞?-->
+    <!-- 预加载关键资源 -->
     <link rel="preload" href="../styles.css" as="style">
     <link rel="preload" href="../translations.js" as="script">
     <link rel="preload" href="../script.js" as="script">
     
-    <!-- DNS 憸圾??-->
+    <!-- DNS 预解析 -->
     <link rel="dns-prefetch" href="https://script.google.com">
     <link rel="dns-prefetch" href="https://cdn.sheetjs.com">
     
-    <!-- SheetJS ?冽?? Excel -->
+    <!-- SheetJS 用於生成 Excel -->
     <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js" defer></script>
 </head>
 <body data-page-variant="A" data-asset-dir="../data/page-a/">
-    <!-- 憿菟?蝸餈漲??-->
+    <!-- 页面加载进度条 -->
     <div id="loading-bar"></div>
     
-    <!-- ???圈??詨 -->
+    <!-- 時間地點選單 -->
     <div class="language-switcher">
         <select id="location-select">
-            <option value="">???圈?</option>
+            <option value="">時間地點</option>
         </select>
     </div>
 
-    <!-- 憿園隡??恣?嗆赤撟?-->
+    <!-- 顶部优惠倒计时横幅 -->
     <div class="top-banner">
         <div class="container">
-            <p><span data-i18n="countdown-banner-text">?????勗?嚗甇Ｘ?????/span> <span id="countdown-banner">15:00:00</span></p>
+            <p><span data-i18n="countdown-banner-text">⚡ 限時報名！截止時間僅剩</span> <span id="countdown-banner">15:00:00</span></p>
         </div>
     </div>
 
-    <section class="page-variant-headline" aria-label="銝餅?">
+    <section class="page-variant-headline" aria-label="主標">
         <div class="container">
-            <p class="page-variant-label">A???憭望</p>
-            <h1 class="page-variant-title">雿拿??嚗?賭??航????憭抬?敹??芸楛???鈭箝?/h1>
+            <p class="page-variant-label">A版｜預防失智</p>
+            <h1 class="page-variant-title">你害怕的，可能不是變老。是有一天，忘了自己最愛的人。</h1>
         </div>
     </section>
 
-    <!-- 憿園銝餉?閫 -->
+    <!-- 顶部主视觉图 -->
     <div class="hero-image-section">
         <div class="hero-image-wrapper">
-            <a href="javascript:void(0)" onclick="openModal()" aria-label="蝡?勗?">
-                <img src="../data/page-a/topN.jpg" alt="AI頨怨朣⊥暑摮賊" class="hero-top-image" loading="lazy" width="1200" height="630">
+            <a href="javascript:void(0)" onclick="openModal()" aria-label="立即報名">
+                <img src="../data/page-a/topN.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
             </a>
         </div>
     </div>
     <div class="hero-image-section">
         <div class="hero-image-wrapper">
-            <img src="../data/page-a/top1.jpg" alt="AI頨怨朣⊥暑摮賊" class="hero-top-image" loading="lazy" width="1200" height="630">
+            <img src="../data/page-a/top1.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
         </div>
     </div>
-    <!-- 蝚砌??蜓閬死??-->
+    <!-- 第二頁主視覺圖 -->
     <div class="hero-image-section">
         <div class="hero-image-wrapper">
-            <img src="../data/page-a/top2.jpg" alt="AI頨怨朣⊥暑摮賊" class="hero-top-image" loading="lazy" width="1200" height="630">
-        </div>
-    </div>
-
-    <!-- 蝚砌??蜓閬死??-->
-    <div class="hero-image-section">
-        <div class="hero-image-wrapper">
-            <img src="../data/page-a/top3.jpg" alt="AI頨怨朣⊥暑摮賊" class="hero-top-image" loading="lazy" width="1200" height="630">
+            <img src="../data/page-a/top2.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
         </div>
     </div>
 
-    <!-- 蝚砍??蜓閬死??-->
+    <!-- 第三頁主視覺圖 -->
     <div class="hero-image-section">
         <div class="hero-image-wrapper">
-            <a class="hero-link" href="https://www.youtube.com/watch?v=4GjrZCk_b_E&t=3s" target="_blank" rel="noopener noreferrer" aria-label="閫?蔣??>
-                <img src="../data/page-a/top4.jpg" alt="AI頨怨朣⊥暑摮賊" class="hero-top-image" loading="lazy" width="1200" height="630" onclick="window.open('https://www.youtube.com/watch?v=4GjrZCk_b_E&t=3s', '_blank')">
+            <img src="../data/page-a/top3.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
+        </div>
+    </div>
+
+    <!-- 第四頁主視覺圖 -->
+    <div class="hero-image-section">
+        <div class="hero-image-wrapper">
+            <a class="hero-link" href="https://www.youtube.com/watch?v=4GjrZCk_b_E&t=3s" target="_blank" rel="noopener noreferrer" aria-label="觀看影片">
+                <img src="../data/page-a/top4.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630" onclick="window.open('https://www.youtube.com/watch?v=4GjrZCk_b_E&t=3s', '_blank')">
             </a>
         </div>
     </div>
 
-    <!-- 蝚砌??蜓閬死??-->
+    <!-- 第五頁主視覺圖 -->
     <div class="hero-image-section">
         <div class="hero-image-wrapper">
-            <a href="javascript:void(0)" onclick="openModal()" aria-label="蝡?勗?">
-                <img src="../data/page-a/top5.jpg" alt="AI頨怨朣⊥暑摮賊" class="hero-top-image" loading="lazy" width="1200" height="630">
+            <a href="javascript:void(0)" onclick="openModal()" aria-label="立即報名">
+                <img src="../data/page-a/top5.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
             </a>
         </div>
     </div>
 
-    <!-- 蝚砍?蜓閬死??-->
+    <!-- 第六頁主視覺圖 -->
     <div class="hero-image-section">
         <div class="hero-image-wrapper">
-            <img src="../data/page-a/top6.jpg" alt="AI頨怨朣⊥暑摮賊" class="hero-top-image" loading="lazy" width="1200" height="630">
+            <img src="../data/page-a/top6.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
         </div>
     </div>
 
-    <!-- ?格?????-->
+    <!-- 目标受众区 -->
     <!--<section class="target-audience">
         <div class="container">
-            <h2 class="section-title" data-i18n="target-audience-title">隤圈???閬?</h2>
+            <h2 class="section-title" data-i18n="target-audience-title">誰適合與需要？</h2>
             <div class="audience-grid">
                 <div class="audience-card">
-                    <h3 data-i18n="audience-1-title">擃??血?撌乩???/h3>
-                    <p data-i18n="audience-1-subtitle">銝餌恣嚗??選???嚗平???萎????葦</p>
+                    <h3 data-i18n="audience-1-title">高壓腦力工作者</h3>
+                    <p data-i18n="audience-1-subtitle">主管／行政／會計／業務／創作者／老師</p>
                     <p data-i18n="audience-1-text">
-                        ?? 雿??臭??芸?嚗憭扯?瑟?頞???                        ??蝟餌絞??蝺湔???>撠釣???嗚??毀蝧?蝪∪?臬??風?衣????霈?撌乩??湔??啜?蝺蝛押?/p>
+                        🌍 你不是不努力，是大腦長期超載。
+                        這套系統把訓練拆成->專注、記憶、提取練習＋簡單可做的護腦習慣，讓你工作更清晰、情緒更穩。</p>
                 
                 </div>
                 <div class="audience-card">
-                    <h3 data-i18n="audience-2-title">摰寞??亙????閮??</h3>
-                    <p data-i18n="audience-2-subtitle">撣詨??勗?镼選?摰寞???嚗??唬???鈭?隤芯?暻?/p>
-                    <!--<p data-i18n="audience-2-text">?? 雿?閬?銝蝖祈?嚗???嗥??伐?蝺渡?蝭憟??憿澈?撣豢?憓?霈????嗅??典?靘?                
-                </div>
-                <div class="audience-card">
-                    <h3 data-i18n="audience-3-title">?閬之?飛蝧?閮?犖</h3>
-                       <p data-i18n="audience-3-subtitle">摮貊?嚗??剜?嚗摮貉??岫??/p>
-                       <p data-i18n="audience-3-text">?? 雿??閬??荔??航?啜?芸??餈質馱????閮毀閮剛??I瘚???/p>
+                    <h3 data-i18n="audience-2-title">容易健忘、想提升記憶的你</h3>
+                    <p data-i18n="audience-2-subtitle">常忘東忘西／容易分心／講到一半忘了要說什麼</p>
+                    <!--<p data-i18n="audience-2-text">🌍 你需要的不是硬背，而是「記憶策略＋練習節奏」。我們用題庫與日常情境，讓你把記憶力用回來。
                 
                 </div>
                 <div class="audience-card">
-                    <h3 data-i18n="audience-4-title">???亙熒???脩?雿?/h3>
-                    <p data-i18n="audience-4-subtitle">???冽?隤靽?撱箇?霅瑁蝧</p>
-                     <!--<p data-i18n="audience-4-text">?? ??蝟餌絞??????矽蝭?冗鈭文瞈???蝺氬??銝撘萄?瑁?皜嚗鼠雿??亙熒?迤?脩?瘣餉ㄐ??/p>
+                    <h3 data-i18n="audience-3-title">需要大量學習與記憶的人</h3>
+                       <p data-i18n="audience-3-subtitle">學生／上班族／自學者／考試族</p>
+                       <p data-i18n="audience-3-text">🌍 你最需要的是：可落地、可陪做、可追蹤。我們把訓練設計成「AI流程」。</p>
+                
+                </div>
+                <div class="audience-card">
+                    <h3 data-i18n="audience-4-title">重視健康與預防的你</h3>
+                    <p data-i18n="audience-4-subtitle">開始在意認知保健、想建立護腦習慣</p>
+                     <!--<p data-i18n="audience-4-text">🌍 這套系統把「運動、睡眠、壓力調節、社交刺激、腦力訓練」整理成一張可執行清單，幫你把健康真正做進生活裡。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 蝚砌??蜓閬死??-->
+    <!-- 第七頁主視覺圖 -->
     <div class="hero-image-section">
         <div class="hero-image-wrapper">
-            <img src="../data/page-a/top7.jpg" alt="AI頨怨朣⊥暑摮賊" class="hero-top-image" loading="lazy" width="1200" height="630">
+            <img src="../data/page-a/top7.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
         </div>
     </div>
 
@@ -174,108 +176,109 @@
             </div>-->
             
             <h1 class="main-headline" data-i18n="main-headline">
-                ?亙?蝑??嗉?撌殷??曉撠梢?憪之?行暑??
+                別再等記憶變差，現在就開始「大腦活化」！
             </h1>
             
             <div class="offer-box">
                 <!-- <ul class="features-list">
-                    <li data-i18n="feature-1">???具I霈之?行暑??? 閮閮毀?遣蝡?憭拍?隤靽瘚?</li>
-                    <li data-i18n="feature-2">??銝?閬?鞎游???閬摮貉??荔??芾?憿?頝???/li>
-                    <li data-i18n="feature-3">??蝯行??僑朣∪惜?犖嚗?撠釣??皜???</li>
-                    <li data-i18n="feature-4">?????舐??皝荔??臭?憟餈質馱?銴ˊ?I隤靽蝟餌絞</li>
+                    <li data-i18n="feature-1">✅ 用「AI讓大腦活化 × 記憶訓練」建立每天的認知保健流程</li>
+                    <li data-i18n="feature-2">✅ 不需要昂貴器材、不需要醫學背景，只要願意跟著做</li>
+                    <li data-i18n="feature-3">✅ 給所有年齡層的人，把專注力與清晰感找回來</li>
+                    <li data-i18n="feature-4">✅ 這不是短期雞湯，是一套可追蹤、可複製的AI認知保健系統</li>
                 </ul>-->
                 
                 <div class="pricing">
-                    <p class="original-price"><span data-i18n="original-price">憭扯瘣餃?蝟餌絞嚗?璆剛?蝟餌絞??閮毀嚗I??嚗?/span><span class="strikethrough">NT$2,000??</span></p>
-                    <p class="current-price"><span data-i18n="current-price">??蝡鈭圾</span> <span class="highlight" data-i18n="highlight">???祥</span>嚗?/p>
+                    <p class="original-price"><span data-i18n="original-price">大腦活化系統（專業與系統化的訓練＋AI提醒）</span><span class="strikethrough">NT$2,000元.</span></p>
+                    <p class="current-price"><span data-i18n="current-price">✅ 立即了解</span> <span class="highlight" data-i18n="highlight">限時免費</span>！</p>
                 </div>
                 
-                <button class="cta-button pulse" data-i18n="cta-button">?嗅??勗?</button>
+                <button class="cta-button pulse" data-i18n="cta-button">搶先報名</button>
                 
-                <p class="urgency-text" data-i18n="urgency-text">?梧? ?芣?蝯? ??蝡? NT$2,000嚗甇?11.59pm ?梧?</p>
+                <p class="urgency-text" data-i18n="urgency-text">⏱️ 優惠結束 → 立刻回到 NT$2,000！截止 11.59pm ⏱️</p>
             </div>
 
-            <!-- ?恣?嗅 -->
+            <!-- 倒计时器 -->
             <div class="countdown-timer">
                 <div class="timer-item">
                     <span class="timer-value" id="days">00</span>
-                    <span class="timer-label" data-i18n="timer-days">憭?/span>
+                    <span class="timer-label" data-i18n="timer-days">天</span>
                 </div>
                 <div class="timer-item">
                     <span class="timer-value" id="hours">00</span>
-                    <span class="timer-label" data-i18n="timer-hours">??/span>
+                    <span class="timer-label" data-i18n="timer-hours">時</span>
                 </div>
                 <div class="timer-item">
                     <span class="timer-value" id="minutes">00</span>
-                    <span class="timer-label" data-i18n="timer-minutes">??/span>
+                    <span class="timer-label" data-i18n="timer-minutes">分</span>
                 </div>
                 <div class="timer-item">
                     <span class="timer-value" id="seconds">00</span>
-                    <span class="timer-label" data-i18n="timer-seconds">蝘?/span>
+                    <span class="timer-label" data-i18n="timer-seconds">秒</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 蝚砍?蜓閬死??-->
+    <!-- 第八頁主視覺圖 -->
     <div class="hero-image-section">
         <div class="hero-image-wrapper">
-            <img src="../data/page-a/top8.jpg" alt="AI頨怨朣⊥暑摮賊" class="hero-top-image" loading="lazy" width="1200" height="630">
+            <img src="../data/page-a/top8.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
         </div>
     </div>
 
-    <!-- 蝚砌??蜓閬死??-->
+    <!-- 第九頁主視覺圖 -->
     <div class="hero-image-section">
         <div class="hero-image-wrapper">
-            <img src="../data/page-a/top9.jpg" alt="AI頨怨朣⊥暑摮賊" class="hero-top-image" loading="lazy" width="1200" height="630">
+            <img src="../data/page-a/top9.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
         </div>
     </div>
-    <!-- 蝚砍??蜓閬死??-->
+    <!-- 第十頁主視覺圖 -->
     <div class="hero-image-section">
         <div class="hero-image-wrapper">
-            <img src="../data/page-a/top10.jpg" alt="AI頨怨朣⊥暑摮賊" class="hero-top-image" loading="lazy" width="1200" height="630">
+            <img src="../data/page-a/top10.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
         </div>
     </div>
 
-    <!-- 蝚砍?銝?蜓閬死??-->
+    <!-- 第十一頁主視覺圖 -->
     <div class="hero-image-section">
         <div class="hero-image-wrapper">
-            <a href="javascript:void(0)" onclick="openModal()" aria-label="蝡?勗?">
-                <img src="../data/page-a/top11.jpg" alt="AI頨怨朣⊥暑摮賊" class="hero-top-image" loading="lazy" width="1200" height="630">
+            <a href="javascript:void(0)" onclick="openModal()" aria-label="立即報名">
+                <img src="../data/page-a/top11.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
             </a>
         </div>
     </div>
    
-    <!-- 閫?瞍內??
+    <!-- 视频演示区 
     <section class="video-section">
         <div class="container">
-            <p class="video-instruction" data-i18n="video-instruction">?? 蝣箔?雿???喉?蝑?敶梁?頛...</p>
+            <p class="video-instruction" data-i18n="video-instruction">🔊 確保你打開聲音，等待影片載入...</p>
             <div class="video-wrapper">
                 <video id="mainVideo" width="100%" height="100%" controls controlsList="nodownload" autoplay muted loop playsinline style="border: none;">
                     <source src="../data/IG6.mp4" type="video/mp4">
-                    ?函??汗?其??舀敶梁??剜??                </video>
+                    您的瀏覽器不支援影片播放。
+                </video>
             </div>
         </div>
     </section> 
 
     
 
-    <!-- Before vs After 撖寞???
+    <!-- Before vs After 对比区 
     <section class="comparison-section">
         <div class="container">
             <div class="comparison-wrapper">
                 <div class="before-box">
-                    <!-- ??曄? 
+                    <!-- 痛点图片 
                     <div class="comparison-image-wrapper">
-                        <img src="../data/cannot get customer.png" alt="?⊥??脣恥??? class="comparison-image" loading="lazy">
+                        <img src="../data/cannot get customer.png" alt="無法獲客的困擾" class="comparison-image" loading="lazy">
                     </div>
-                    <h2 data-i18n="comparison-before">銋?</h2>
+                    <h2 data-i18n="comparison-before">之前</h2>
                     <ul>
-                        <li data-i18n="before-1">??霈??游捆??敹?摰停敹?/li>
-                        <li data-i18n="before-2">??鈭?敺?雿鋡?????/li>
-                        <li data-i18n="before-3">???單?銝???芷?憪?銝???/li>
-                        <li data-i18n="before-4">??撠頛拍??瘜?殷?雿??瘜?/li>
-                        <li data-i18n="before-5">???暑蝭憟???榆??靘?瘝移蟡?/li>
+                        <li data-i18n="before-1">❌ 變得更容易分心、看完就忘。</li>
+                        <li data-i18n="before-2">❌ 事情很多但腦袋一團亂。</li>
+                        <li data-i18n="before-3">❌ 想改善卻不知道從哪開始、做不久。</li>
+                        <li data-i18n="before-4">❌ 對長輩的狀況焦慮，但沒有方法。</li>
+                        <li data-i18n="before-5">❌ 生活節奏亂、睡眠差、越來越沒精神。</li>
                     </ul>
                 </div>
                 
@@ -284,138 +287,140 @@
                 </div>
                 
                 <div class="after-box">
-                    <!-- ???瑕恥?曄? 
+                    <!-- 成功获客图片 
                     <div class="comparison-image-wrapper">
-                        <img src="../data/get customer.png" alt="???脣恥" class="comparison-image" loading="lazy" width="800" height="600">
+                        <img src="../data/get customer.png" alt="成功獲客" class="comparison-image" loading="lazy" width="800" height="600">
                     </div>
-                    <h2 data-i18n="comparison-after">銋?</h2>
+                    <h2 data-i18n="comparison-after">之後</h2>
                     <ul>
-                        <li data-i18n="after-1">??瘥予撠釣???嗉?蝺湔?蝭憟?/li>
-                        <li data-i18n="after-2">???????嗥??乓?憭扯?湔???暺?/li>
-                        <li data-i18n="after-3">???AI靘????雿?敺??芸楛?券脫郊??/li>
-                        <li data-i18n="after-4">???芯撈?瑁憬?湔??孵?嚗?韏瑕???韏瑞帘??/li>
-                        <li data-i18n="after-5">??<strong>???湔??啜?瘣餅頦祕??/strong></li>
+                        <li data-i18n="after-1">✅ 每天專注與記憶訓練有節奏</li>
+                        <li data-i18n="after-2">✅ 透過「記憶策略」讓大腦更會抓重點</li>
+                        <li data-i18n="after-3">✅ 運用AI來提升自我:你看得見自己在進步。</li>
+                        <li data-i18n="after-4">✅ 陪伴長輩更有方向：一起做、一起穩。</li>
+                        <li data-i18n="after-5">✅ <strong>思緒更清晰、生活更踏實。</strong></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
     -->
-    <!-- ?唳撣詨??-->
+    <!-- 新日常场景 -->
     <section class="new-daily-life">
         <div class="container">
-            <h2 class="section-title special-title" data-i18n="daily-life-title">??AI頨怨朣⊥暑摮賊銋?....</h2>
+            <h2 class="section-title special-title" data-i18n="daily-life-title">有了AI身腦齡活學院之後....</h2>
             
-            <!-- 蝟餌絞蝷箸???
+            <!-- 系統示意圖 
             <div class="daily-life-image">
-                <img src="../data/signed.png" alt="摰Ｘ?芸?蝪賜?蝷箸??? loading="lazy" width="1200" height="675">
+                <img src="../data/signed.png" alt="客戶自動簽約示意圖" loading="lazy" width="1200" height="675">
             </div>
         -->
             <div class="daily-scenarios">
                 <div class="scenario-item">
-                    <div class="scenario-icon">?儭?/div>
-                    <p data-i18n="scenario-1">?拐?韏瑕?嚗??死敺鋡?瘝?</p>
+                    <div class="scenario-icon">🌤️</div>
+                    <p data-i18n="scenario-1">早上起床，不再覺得腦袋沉沉的</p>
                 </div>
                 <div class="scenario-item">
-                    <div class="scenario-icon">??</div>
-                    <p data-i18n="scenario-2">摮貊????嗥?蝭憟?</p>
+                    <div class="scenario-icon">📌</div>
+                    <p data-i18n="scenario-2">學習與記憶的節奏更順暢</p>
                 </div>
                 <div class="scenario-item">
-                    <div class="scenario-icon">??</div>
-                    <p data-i18n="scenario-3">?之?阡?牧??</p>
+                    <div class="scenario-icon">📈</div>
+                    <p data-i18n="scenario-3">向大腦退化說再見</p>
                 </div>
             </div>
-            <p class="highlight-text" data-i18n="highlight-text">???停?胯I頨怨朣⊥暑摮賊?葆靘?摰?????/p>
+            <p class="highlight-text" data-i18n="highlight-text">✨ 這就是「AI身腦齡活學院」帶來的安心感 ✨</p>
         </div>
     </section>
 
-    <!-- 蝟餌?瞍內獢? 
+    <!-- 系统演示案例 
     <section class="demo-cases">
         <div class="container">
             <div class="cases-grid">
                 <div class="case-card">
-                    <img src="../data/1.png" alt="隢株岷撣急?靘? style="width: 100%; border-radius: 8px; margin-bottom: 15px;" loading="lazy">
-                    <h3>隢株岷撣?/h3>
-                    <p>?潔?2蝭摰孵停?犖??隢株岷隤脩?</p>
+                    <img src="../data/1.png" alt="諮詢師案例" style="width: 100%; border-radius: 8px; margin-bottom: 15px;" loading="lazy">
+                    <h3>諮詢師</h3>
+                    <p>發了2篇內容就有人預約諮詢課程</p>
                 </div>
                 <div class="case-card">
-                    <img src="../data/2.png" alt="靽&??獢?" style="width: 100%; border-radius: 8px; margin-bottom: 15px;" loading="lazy">
-                    <h3>靽&??</h3>
-                    <p>隤芣???銝憭拇遛撣哨?銝??誨??/p>
+                    <img src="../data/2.png" alt="保險&招商案例" style="width: 100%; border-radius: 8px; margin-bottom: 15px;" loading="lazy">
+                    <h3>保險&招商</h3>
+                    <p>說明會前一天滿席，不再靠廣告</p>
                 </div>
                 <div class="case-card">
-                    <img src="../data/3.png" alt="?芰撌乩???靘? style="width: 100%; border-radius: 8px; margin-bottom: 15px;" loading="lazy">
-                    <h3>?芰撌乩???/h3>
-                    <p>?????頝喳摰Ｘ閰Ｗ?嚗?鈭箄???</p>
+                    <img src="../data/3.png" alt="自由工作者案例" style="width: 100%; border-radius: 8px; margin-bottom: 15px;" loading="lazy">
+                    <h3>自由工作者</h3>
+                    <p>剛睡醒，手機跳出客戶詢問：有人要服務</p>
                 </div>
                 <div class="case-card">
-                    <img src="../data/4.png" alt="?憿批?獢?" style="width: 100%; border-radius: 8px; margin-bottom: 15px;" loading="lazy">
-                    <h3>?憿批?</h3>
-                    <p>雿輻銝?典?嚗?撟曉振?瑕葆摮拙?靘?擃?隤?/p>
+                    <img src="../data/4.png" alt="教育顧問案例" style="width: 100%; border-radius: 8px; margin-bottom: 15px;" loading="lazy">
+                    <h3>教育顧問</h3>
+                    <p>使用一周後，十幾個家長帶孩子來上體驗課</p>
                 </div>
             </div>
         </div>
     </section>
     -->
-    <!-- CTA銝剝??-->
+    <!-- CTA中间区 -->
     <section class="mid-cta">
         <div class="container">
-            <p class="urgency-badge" data-i18n="urgency-badge">?勗?鈭箸撌脰???92%嚗??甇?/p>
+            <p class="urgency-badge" data-i18n="urgency-badge">報名人數已超過 92%，優惠隨時截止</p>
             <div class="pricing">
-                <p class="current-price" data-i18n="current-price">???????暺?/p>
-                <p class="current-price"><span class="highlight" data-i18n="highlight">?????勗?</span>嚗?/p>
+                <p class="current-price" data-i18n="current-price">✅ 按報名查看時間地點</p>
+                <p class="current-price"><span class="highlight" data-i18n="highlight">限時開始報名</span>！</p>
             </div>
-            <button class="cta-button pulse" data-i18n="cta-button">?嗅??勗?</button>
-            <p class="package-info" data-i18n="package-info">AI頨怨朣⊥暑摮賊</p>
+            <button class="cta-button pulse" data-i18n="cta-button">搶先報名</button>
+            <p class="package-info" data-i18n="package-info">AI身腦齡活學院</p>
         </div>
     </section>
 
-    <!-- 摮血?霂遠 
+    <!-- 学员评价 
     <section class="testimonials">
         <div class="container">
-            <h2 class="section-title stroke-title" data-i18n="testimonials-title">?祕摮詨??</h2>
+            <h2 class="section-title stroke-title" data-i18n="testimonials-title">真實學員回饋</h2>
             
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-header">
                         <img src="../data/1.png" alt="Louis Lin" class="avatar" loading="lazy">
                         <div class="testimonial-info">
-                            <h4 data-i18n="testimonial-1-name">?喳???/h4>
-                            <p class="role" data-i18n="testimonial-1-role">撌亦?銝餌恣</p>
-                            <div class="stars">潃?潃?潃?/div>
+                            <h4 data-i18n="testimonial-1-name">吳先生</h4>
+                            <p class="role" data-i18n="testimonial-1-role">工程主管</p>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
                         </div>
                     </div>
                     <p class="testimonial-text" data-i18n="testimonial-1-text">
-                        隞亙?瘥予???唬???蝒?∩?嚗?鈭?勗?嚗??＊?胯????游翰????銋?頛??行??strong>?暑?釭憭批之??</strong>
+                        以前每天開會到一半會突然卡住，做了兩週後，最明顯是「抓重點更快」，晚上也比較不焦慮。<strong>生活品質大大提升</strong>
                 </div>
 
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <img src="../data/3.png" alt="?喲??? class="avatar" loading="lazy">
+                        <img src="../data/3.png" alt="陳麗卿" class="avatar" loading="lazy">
                         <div class="testimonial-info">
-                            <h4 data-i18n="testimonial-2-name">?喳?憪?/h4>
-                            <p class="role" data-i18n="testimonial-2-role">?拙窄慦?/p>
-                            <div class="stars">潃?潃?潃?/div>
+                            <h4 data-i18n="testimonial-2-name">陳小姐</h4>
+                            <p class="role" data-i18n="testimonial-2-role">兩寶媽</p>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
                         </div>
                     </div>
                     <p class="testimonial-text" data-i18n="testimonial-2-text">
-                        ?勗?<strong>AI頨怨朣⊥暑摮賊</strong>嚗?????暺??撠梯岫閰血???喳銝??蝟餌絞嚗?                        銝銝?梧?<strong>?砌?隞亦?芸楛?芣蝝荔?蝯??舫??敹?憭拍???敺嚗???憪????隞嗡辣摰???/strong>??憭芰?憟?
+                        報名<strong>AI身腦齡活學院</strong>，一開始還有點懷疑，就試試吧。沒想到一啟動系統，
+                        不到一週，<strong>本來以為自己只是累，結果是長期分心。每天真的做得到，而且我開始能把事情一件件完成。</strong>真的太神奇了
                     </p>
                 </div>
 
 
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <img src="../data/4.png" alt="摰" class="avatar" loading="lazy">
+                        <img src="../data/4.png" alt="宜臻" class="avatar" loading="lazy">
                         <div class="testimonial-info">
-                            <h4 data-i18n="testimonial-3-name">?游云憭?/h4>
-                            <p class="role" data-i18n="testimonial-3-role">?隡?/p>
-                            <div class="stars">潃?潃?潃?/div>
+                            <h4 data-i18n="testimonial-3-name">嚴太太</h4>
+                            <p class="role" data-i18n="testimonial-3-role">退休者</p>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
                         </div>
                     </div>
                     <p class="testimonial-text" data-i18n="testimonial-3-text">
-                        ???閬??胯?憭扯瘣餃?撟渲??I??蝔?蝪∪嚗????<strong>AI頨怨朣⊥暑摮賊嚗?/strong>
-                        ?隞亙飛???脩?AI?賢?嚗??云璉???                    </p>
+                        我最需要的是「讓大腦活化年輕化」。AI把流程變簡單，很開心遇到<strong>AI身腦齡活學院，</strong>
+                        還可以學會最先進的AI能力，真的太棒了。
+                    </p>
                 </div>
 
             </div>
@@ -424,66 +429,66 @@
 
     <section class="hero-image-section">
         <div class="hero-image-wrapper">
-            <img src="../data/AIMakeMoney.png" alt="AI頨怨朣⊥暑摮賊" class="hero-main-image" loading="lazy" width="1200" height="630">
+            <img src="../data/AIMakeMoney.png" alt="AI身腦齡活學院" class="hero-main-image" loading="lazy" width="1200" height="630">
         </div>
     </section>
     <section class="mid-cta">
         <div class="container">
-            <p class="urgency-badge" data-i18n="urgency-badge">?勗?鈭箸撌脰???92%嚗??甇?/p>
+            <p class="urgency-badge" data-i18n="urgency-badge">報名人數已超過 92%，優惠隨時截止</p>
             <div class="pricing">
-                <p class="original-price"> <span class="strikethrough" data-i18n="mid-cta-original">? NT$2,000??/span></p>
-                <p class="current-price"><span data-i18n="mid-cta-current">???曉??蝺??勗?銝?/span> <span class="highlight" data-i18n="highlight">???祥</span>嚗?/p>
+                <p class="original-price"> <span class="strikethrough" data-i18n="mid-cta-original">原價 NT$2,000元</span></p>
+                <p class="current-price"><span data-i18n="mid-cta-current">✅ 現在限時線上報名中</span> <span class="highlight" data-i18n="highlight">限時免費</span>！</p>
             </div>
-            <button class="cta-button pulse" data-i18n="cta-button">?嗅??勗?</button>
-            <p class="package-info" data-i18n="package-info">AI頨怨朣⊥暑摮賊</p>
+            <button class="cta-button pulse" data-i18n="cta-button">搶先報名</button>
+            <p class="package-info" data-i18n="package-info">AI身腦齡活學院</p>
         </div>
     </section>
 
-    <!-- ??捆 
+    <!-- 包含内容 
     <section class="whats-included">
         <div class="container">
-            <h2 class="section-title">雿??脣?隞暻潘?</h2>
+            <h2 class="section-title">你將獲得什麼？</h2>
             <div class="included-grid">
                 <div class="included-item">
                     <div class="item-number">1</div>
-                    <h3>MIGRITY?撠?嚗恥???抬?</h3>
-                    <p>?冽??餃蝟餌絞??摮賊???銝??臭誑閰Ｗ?</p>
+                    <h3>MIGRITY會員專區（客服協助）</h3>
+                    <p>隨時登入系統、邊學邊做，不會可以詢問</p>
                 </div>
                 <div class="included-item">
                     <div class="item-number">2</div>
-                    <h3>26?祕?唳?摮貉玨蝔?/h3>
-                    <p>銝甇交郊敺??????瘚????芸????頂蝯?/p>
+                    <h3>26堂實戰教學課程</h3>
+                    <p>一步步從0打造你的「自動引流 → 自動預約」系統</p>
                 </div>
                 <div class="included-item">
                     <div class="item-number">3</div>
-                    <h3>12憭扯?璆剖摰寧?甈曄???/h3>
-                    <p>銝?萇??撘恥?嗡???摰?/p>
+                    <h3>12大行業內容爆款範本</h3>
+                    <p>一鍵生成吸引客戶上門的內容</p>
                 </div>
                 <div class="included-item">
                     <div class="item-number">4</div>
-                    <h3>?芸?頧?蝟餌絞嚗??蝝?& ?勗?</h3>
-                    <p>?⊿?撖怎?撘Ⅳ嚗?臬遣蝡?垣閰ａ?蝝????勗?蝟餌絞</p>
+                    <h3>自動轉化系統：自動預約 & 報名</h3>
+                    <p>無需寫程式碼，即可建立自動諮詢預約/招商報名系統</p>
                 </div>
                 <div class="included-item">
                     <div class="item-number">5</div>
-                    <h3>Live隤脯?鈭箏?貉竟?Ｘ??具?/h3>
-                    <p>摮豢?撠????嗅嚗???甇??瘚?+ ?漱??璆剝???/p>
+                    <h3>Live課《一人公司賺錢機器》</h3>
+                    <p>學會將流量變收入，打造真正「引流 + 成交」商業閉環</p>
                 </div>
             </div>
         </div>
     </section>
 --> 
-    <!-- 霈Ｗ???/摰遠 
+    <!-- 订单摘要/定价 
     <section class="order-summary">
         <div class="container">
             <div class="order-box">
-                <h2>閮??</h2>
-                <h3>AI?芸?撘恥蝟餌絞+隤脩?</h3>
-                <p class="subtitle">?湔蝯虫?蝭 + ?剖末蝟餌絞</p>
+                <h2>訂單摘要</h2>
+                <h3>AI自動引客系統+課程</h3>
+                <p class="subtitle">直接給你範本 + 搭好系統</p>
                 
                 <div class="price-breakdown">
                     <div class="price-row">
-                        <span>蝟餌絞?芣??喳?蝯?嚗??啣??對?</span>
+                        <span>系統優惠即將結束，回到原價！</span>
                     </div>
                     <div class="price-display">
                         <span class="old-price">NT$6,927</span>
@@ -491,68 +496,68 @@
                         <span class="new-price">NT$1,727</span>
                     </div>
                     <div class="guarantee">
-                        <p>??7憭拙飛銝????/p>
+                        <p>✅ 7天學不會退包</p>
                     </div>
                 </div>
 
                 <div class="whats-included-summary">
-                    <h4>?批捆?嚗?/h4>
+                    <h4>內容包含：</h4>
                     <ul>
-                        <li>??MIGRITY摮貊??撠?</li>
-                        <li>??26?祕?唳?摮貉玨蝔?/li>
-                        <li>??12憭扯?璆剖摰寧?甈曄???/li>
-                        <li>???芸?頧?蝟餌絞嚗??蝝?& ?勗?</li>
-                        <li>??Live隤莎?4撠???鈭箏?貉竟?Ｘ??具?/li>
+                        <li>✓ MIGRITY學習會員專區</li>
+                        <li>✓ 26堂實戰教學課程</li>
+                        <li>✓ 12大行業內容爆款範本</li>
+                        <li>✓ 自動轉化系統：自動預約 & 報名</li>
+                        <li>✓ Live課：4小時《一人公司賺錢機器》</li>
                     </ul>
                 </div>
 
-                <button class="cta-button large pulse">蝡??</button>
+                <button class="cta-button large pulse">立即開始</button>
             </div>
         </div>
     </section>
 --> 
-    <!-- FAQ?箏? 
+    <!-- FAQ区域 
     <section class="faq-section">
         <div class="container">
-            <h2 class="section-title" data-i18n="faq-title">撣貉???</h2>
+            <h2 class="section-title" data-i18n="faq-title">常見問題</h2>
             <div class="faq-list">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span data-i18n="faq-q1">?臭誑閰西岫??嚗?/span>
+                        <span data-i18n="faq-q1">可以試試看嗎？</span>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p data-i18n="faq-a1">?嗥?臭誑嚗隞伐????祥閰摯??嚗Ⅱ摰???脤???/p>
+                        <p data-i18n="faq-a1">當然可以，可以，先從免費評估開始，確定適合再進階。</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span data-i18n="faq-q2">撟暹革???賣???嚗?/span>
+                        <span data-i18n="faq-q2">幾歲開始都有效嗎？</span>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p data-i18n="faq-a2">?臭誑?頂蝯望?靘??嗡???矽?湧摨艾?/p>
+                        <p data-i18n="faq-a2">可以。系統會依你當下狀態調整難度。</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span data-i18n="faq-q3">?閬飛憭???嚗?/span>
+                        <span data-i18n="faq-q3">需要學多久才會？</span>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p data-i18n="faq-a3">??靘?蝔桐???皞??典隞仿?撌梢?閬??典?嚗飛蝧???鈭箄??/p>
+                        <p data-i18n="faq-a3">我們提供各種不同資源，您可以選擇自己需要的部分，學習時間因人而異。</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span data-i18n="faq-q4">???振鈭綽?撌脩??那?瘀?甇????銋??</span>
+                        <span data-i18n="faq-q4">我（或家人）已經有診斷／正在看醫生，也能嗎？</span>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p data-i18n="faq-a4">隞交?摰雿撣貉??亥?蝺渲??暑蝭憟??雿??蹂誨?怎?嚗????萄??怠???/p>
+                        <p data-i18n="faq-a4">以把它當作「日常認知訓練與生活節奏支持」，但不替代醫療；請同時遵從醫囑。</p>
                     </div>
                 </div>
             </div>
@@ -562,124 +567,125 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p class="copyright" style="margin: 0;" data-i18n="copyright">穢 2025. All Rights Reserved.</p>
+            <p class="copyright" style="margin: 0;" data-i18n="copyright">© 2025. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- 霈Ｗ?銵典?璅⊥? -->
+    <!-- 订单表单模态框 -->
     <div id="orderModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div class="modal-header">
-                <h2 data-i18n="modal-title">?? 蝡?脣??芣?</h2>
-                <p class="modal-subtitle" data-i18n="modal-subtitle">憛怠神鞈?嚗?憪??之?行暑??? 閮閮毀????/p>
+                <h2 data-i18n="modal-title">🎉 立即獲取優惠</h2>
+                <p class="modal-subtitle" data-i18n="modal-subtitle">填寫資料，開始你的「大腦活化 × 記憶訓練」之旅</p>
             </div>
             
             <div class="order-form-wrapper">
-                <!-- 撌虫儒嚗恥??閬?-->
+                <!-- 左侧：订单摘要 -->
                 <!--<div class="order-summary-sidebar">
-                    <h3>閮??</h3>
+                    <h3>訂單摘要</h3>
                     <div class="product-info">
-                        <h4>AI?芸?撘恥蝟餌絞+隤脩?</h4>
-                        <p>?湔蝯虫?蝭 + ?剖末蝟餌絞</p>
+                        <h4>AI自動引客系統+課程</h4>
+                        <p>直接給你範本 + 搭好系統</p>
                     </div>
                     
                     <div class="price-info">
                         <div class="price-row">
-                            <span>?</span>
+                            <span>原價</span>
                             <span class="old-price-text">NT$6,927</span>
                         </div>
                         <div class="price-row discount-row">
-                            <span>???芣? (-75%)</span>
+                            <span>限時優惠 (-75%)</span>
                             <span class="discount-text">-NT$5,200</span>
                         </div>
                         <hr>
                         <div class="price-row total-row">
-                            <span>隞?孵</span>
+                            <span>今日特價</span>
                             <span class="new-price-text">NT$1,727</span>
                         </div>
                     </div>
                     
                     <div class="included-items">
-                        <h4>???批捆?嚗?/h4>
+                        <h4>✓ 內容包含：</h4>
                         <ul>
-                            <li>MIGRITY摮貊??撠?</li>
-                            <li>26?祕?唳?摮貉玨蝔?/li>
-                            <li>12憭扯?璆剖摰寧?甈曄???/li>
-                            <li>?芸?頧?蝟餌絞嚗??蝝?& ?勗?</li>
-                            <li>Live隤莎?4撠???鈭箏?貉竟?Ｘ??具?/li>
+                            <li>MIGRITY學習會員專區</li>
+                            <li>26堂實戰教學課程</li>
+                            <li>12大行業內容爆款範本</li>
+                            <li>自動轉化系統：自動預約 & 報名</li>
+                            <li>Live課：4小時《一人公司賺錢機器》</li>
                         </ul>
                     </div>
                     
                     <div class="guarantee-badge">
-                        <span class="badge-icon">??/span>
-                        <span>7憭拙飛銝????/span>
+                        <span class="badge-icon">✅</span>
+                        <span>7天學不會退包</span>
                     </div>
                 </div>-->
                 
-                <!-- ?喃儒嚗”??-->
+                <!-- 右侧：表单 -->
                 <div class="order-form-main">
                     <form id="orderForm" class="order-form" method="POST">
-                        <input type="hidden" name="?賢???? value="A-?憭望">
+                        <input type="hidden" name="落地頁版本" value="A-預防失智">
                         <div class="form-section">
-                            <h3 data-i18n="form-section-title">?? ?函?鞈?</h3>
+                            <h3 data-i18n="form-section-title">📋 您的資料</h3>
                             
                             <div class="form-group">
-                                <label for="fullName"><span data-i18n="form-name">憪?(撖血???</span> <span class="required">*</span></label>
-                                <input type="text" id="fullName" name="憪?" required data-i18n="form-name-placeholder" placeholder="隢撓?交???>
+                                <label for="fullName"><span data-i18n="form-name">姓名(實名制)</span> <span class="required">*</span></label>
+                                <input type="text" id="fullName" name="姓名" required data-i18n="form-name-placeholder" placeholder="請輸入您的全名">
                             </div>
                             
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="email"><span data-i18n="form-email">?餃??萎辣</span> <span class="required">*</span></label>
-                                    <input type="email" id="email" name="?餃??萎辣" required data-i18n="form-email-placeholder" placeholder="your@email.com">
+                                    <label for="email"><span data-i18n="form-email">電子郵件</span> <span class="required">*</span></label>
+                                    <input type="email" id="email" name="電子郵件" required data-i18n="form-email-placeholder" placeholder="your@email.com">
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="phone"><span data-i18n="form-phone">?餉店?Ⅳ</span> <span class="required"></span></label>
-                                    <input type="tel" id="phone" name="?餉店?Ⅳ" data-i18n="form-phone-placeholder" placeholder="+886 912345678">
+                                    <label for="phone"><span data-i18n="form-phone">電話號碼</span> <span class="required"></span></label>
+                                    <input type="tel" id="phone" name="電話號碼" data-i18n="form-phone-placeholder" placeholder="+886 912345678">
                                 </div>
                             </div>
                             
                             <div class="form-group">
-                                <label><span data-i18n="form-country">?振/?啣?</span> <span class="required">*</span></label>
-                                <input type="hidden" id="country" name="?振?啣?" value="?啁 Taiwan">
+                                <label><span data-i18n="form-country">國家/地區</span> <span class="required">*</span></label>
+                                <input type="hidden" id="country" name="國家地區" value="台灣 Taiwan">
                                 <div id="country-cards" class="option-card-grid">
-                                    <button type="button" class="option-card active" data-country-code="TW" data-country-label="?啁 Taiwan" data-i18n="form-country-tw">?啁 Taiwan</button>
+                                    <button type="button" class="option-card active" data-country-code="TW" data-country-label="台灣 Taiwan" data-i18n="form-country-tw">台灣 Taiwan</button>
                                 </div>
                             </div>
 
                             <div class="form-group" id="region-form-group">
-                                <label><span data-i18n="form-region">撣?閰摯???圈?</span> <span class="required">*</span></label>
-                                <input type="hidden" id="region" name="閰摯?啣?" required>
+                                <label><span data-i18n="form-region">希望評估時間地點</span> <span class="required">*</span></label>
+                                <input type="hidden" id="region" name="評估地區" required>
                                 <div id="region-cards" class="option-card-grid">
-                                    <p class="option-card-message" data-i18n="form-region-loading">頛銝?..</p>
+                                    <p class="option-card-message" data-i18n="form-region-loading">載入中...</p>
                                 </div>
-                                <p id="region-error" class="field-error-message" data-i18n="form-region-required" hidden>隢??隡唳??暺?/p>
+                                <p id="region-error" class="field-error-message" data-i18n="form-region-required" hidden>請選擇評估時間地點</p>
                                 <small style="color: #999; font-size: 0.85rem; margin-top: 5px; display: block;" data-i18n="form-region-hint">
-                                    ? ?圈??梁頂蝯梯???                                </small>
+                                    💡 地點由系統自動更新
+                                </small>
                             </div>
                             
                             <div class="form-group">
-                                <label for="lineId" data-i18n="form-line">LINE ID嚗憛恬??嫣噶?蝜急嚗?/label>
-                                <input type="text" id="lineId" name="LINE_ID" data-i18n="form-line-placeholder" placeholder="隢撓?交??LINE ID">
-                                <small style="color: #666; font-size: 0.85rem; margin-top: 5px; display: block;" data-i18n="form-line-hint">? ?? LINE ID 霈???游翰??冽???/small>
+                                <label for="lineId" data-i18n="form-line">LINE ID（選填，方便我們聯繫您）</label>
+                                <input type="text" id="lineId" name="LINE_ID" data-i18n="form-line-placeholder" placeholder="請輸入您的 LINE ID">
+                                <small style="color: #666; font-size: 0.85rem; margin-top: 5px; display: block;" data-i18n="form-line-hint">💡 提供 LINE ID 讓我們能更快速為您服務</small>
                             </div>
                         </div>
-                        <!-- ?漱?? -->
+                        <!-- 提交按鈕 -->
                         <div class="form-buttons">
                             <button type="submit" id="submitBtn" class="submit-info-btn" disabled>
-                                <span data-i18n="form-submit">?? ?漱鞈?</span>
+                                <span data-i18n="form-submit">📝 提交資料</span>
                             </button>
                         </div>
                         
                         <div class="secure-notice">
-                            <span>??</span>
-                            <span data-i18n="form-secure">?函?鞈?撠??典??唬?霅?/span>
+                            <span>🔒</span>
+                            <span data-i18n="form-secure">您的資料將安全受到保護</span>
                         </div>
                         <!--
                         <div class="view-data-link">
-                            <a href="../records.html" target="_blank">?? ?亦?撌脣摮?鞈?</a>
+                            <a href="../records.html" target="_blank">📊 查看已儲存的資料</a>
                         </div> -->
                     </form>
                 </div>

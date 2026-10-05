@@ -196,6 +196,41 @@ body {
     object-fit: cover;
 }
 
+/* A/B/C 落地頁主標（各 html 的 .page-variant-headline 內容不同） */
+.page-variant-headline {
+    background: linear-gradient(180deg, #fff 0%, #f8f9fa 100%);
+    padding: 1.75rem 1.25rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.page-variant-headline h1 {
+    font-size: clamp(1.35rem, 4vw, 1.85rem);
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--text-dark, #1a1a1a);
+    max-width: 42rem;
+    margin: 0 auto 0.75rem;
+}
+
+.page-variant-headline .page-variant-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: none;
+    color: var(--primary, #c41e3a);
+    margin: 0 auto 0.65rem;
+}
+
+.page-variant-headline .variant-tagline,
+.page-variant-headline .page-variant-tagline {
+    font-size: 1rem;
+    color: var(--text-muted, #555);
+    max-width: 36rem;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
 .hero-top-image {
     width: 100%;
     height: auto;

@@ -10,7 +10,9 @@
 
 根目錄 `https://pmtwtp001.github.io/LOVE/` **沒有** `index.html`（會 404）。對外只投放 `/a/`、`/b/`、`/c/`。
 
-三版 hero 圖僅讀取 `data/page-a/`、`data/page-b/`、`data/page-c/`（路徑在各自 `a|b|c/index.html` 已分開）；換圖後需 `git push` 才會在線上生效。
+三版**主內容**只有：主標 + `data/page-a|b|c/` 的 `topN`～`top11` 長圖 + 報名表（已移除三頁共用舊模板區塊）。`script.js` 會依 `data-page-variant` 強制 hero 圖載入對應資料夾。
+
+**重要：** 三資料夾內的 `.jpg` 必須是**不同檔案**才會看起來不同；若三邊放同一張圖，畫面仍會一樣。換圖後 `git push` 才會上線。
 
 三頁共用：`styles.css`、`script.js`、`translations.js`、同一個 `GOOGLE_SCRIPT_URL`（Google Sheet / 郵件邏輯不變）。
 

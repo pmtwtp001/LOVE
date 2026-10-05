@@ -617,8 +617,39 @@ function initVideoTracking() {
     }
 }
 
+/** 依 a/b/c 落地頁強制 hero 圖走各自 data/page-x/（避免三頁共用同一路徑或快取） */
+function initLandingPageVariantAssets() {
+    const body = document.body;
+    if (!body) return;
+
+    const variant = body.dataset.pageVariant;
+    let assetDir = body.dataset.assetDir || '';
+    if (!variant) return;
+
+    if (!assetDir) {
+        const path = window.location.pathname.replace(/\\/g, '/');
+        if (path.includes('/b/')) assetDir = '/LOVE/data/page-b/';
+        else if (path.includes('/c/')) assetDir = '/LOVE/data/page-c/';
+        else if (path.includes('/a/')) assetDir = '/LOVE/data/page-a/';
+    }
+    if (!assetDir.endsWith('/')) assetDir += '/';
+
+    body.classList.add('landing-variant-' + variant.toLowerCase());
+
+    document.querySelectorAll('img.hero-top-image').forEach((img) => {
+        const src = img.getAttribute('src') || '';
+        const fileName = src.split('/').pop().split('?')[0];
+        if (!fileName) return;
+        img.src = assetDir + fileName + '?v=' + variant;
+    });
+
+    console.log('📄 落地頁', variant, '| 素材目錄', assetDir);
+}
+
 // 页面加载时初始化所有功能
 document.addEventListener('DOMContentLoaded', () => {
+    initLandingPageVariantAssets();
+
     // 🌐 先初始化語言（必須最先執行）
     initLanguage();
     

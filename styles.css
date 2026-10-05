@@ -231,6 +231,16 @@ body {
     line-height: 1.6;
 }
 
+/* 三版僅靠主標 + 各自 page-x 長圖，避免共用舊模板區塊 */
+body.landing-variant-a .page-variant-label,
+body.landing-variant-b .page-variant-label,
+body.landing-variant-c .page-variant-label {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.05);
+}
+
 .hero-top-image {
     width: 100%;
     height: auto;

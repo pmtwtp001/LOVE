@@ -8,7 +8,9 @@
 | **B** | 權威／故事：失智可以改變嗎 | `b/index.html` | `https://pmtwtp001.github.io/LOVE/b/` |
 | **C** | 價值顛覆：大腦保養 | `c/index.html` | `https://pmtwtp001.github.io/LOVE/c/` |
 
-根目錄 `https://pmtwtp001.github.io/LOVE/` 會轉到 `a/`（保留 `?ref=`）。對外投放請直接用 `/a/`、`/b/`、`/c/`。
+根目錄 `https://pmtwtp001.github.io/LOVE/` 為**入口選單**（不會自動跳轉）。對外投放請直接用 `/a/`、`/b/`、`/c/`。
+
+三版 hero 圖僅讀取 `data/page-a/`、`data/page-b/`、`data/page-c/`（路徑在各自 `a|b|c/index.html` 已分開）；換圖後需 `git push` 才會在線上生效。
 
 三頁共用：`styles.css`、`script.js`、`translations.js`、同一個 `GOOGLE_SCRIPT_URL`（Google Sheet / 郵件邏輯不變）。
 

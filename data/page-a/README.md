@@ -1,22 +1,18 @@
 # A 版｜預防失智（主力）— `/LOVE/a/`
 
-主標（HTML）：你身邊的人開始重複問同樣的事…
+## 長圖檔名 ↔ 點擊行為（與 `a/index.html` 一致）
 
-## 長圖檔名 ↔ 第幾張 ↔ 點擊行為
+| 張 | 檔名 | 點整張圖 |
+|----|------|----------|
+| 1 | top1.jpg | 站內 `#slide-2` |
+| 2 | top2.jpg | https://www.youtube.com/watch?v=OBAz-XEAZ2A |
+| 3 | top3.jpg | 無 |
+| 4 | top4.jpg | https://health.udn.com/health/video/page/228 |
+| 5 | top5.jpg | 無 |
+| 6 | top6.jpg | 無 |
+| 7 | top7.jpg | https://health.udn.com/health/story/5999/8928752 |
+| 8 | top8.jpg | 無 |
+| 9 | top9.jpg | 無 |
+| 10 | top10.jpg | 站內報名 `openModal()`（表單模態框） |
 
-| 檔名 | 張數 | 點整張圖 |
-|------|------|----------|
-| top1.jpg | 第 1 張 | 站內 `#slide-2` |
-| top2.jpg | 第 2 張 | YouTube 學員見證 `lxXH1icswmE` |
-| top3.jpg | 第 3 張 | 無（純展示） |
-| top4.jpg | 第 4 張 | 元氣網《我會失智嗎？》報導／節目頁 |
-| top5.jpg | 第 5 張 | 無 |
-| top6.jpg | 第 6 張 | 無 |
-| top7.jpg | 第 7 張 | 元氣網論壇報導（失智論壇） |
-| top8.jpg | 第 8 張 | 無 |
-| top9.jpg | 第 9 張 | 無 |
-| top10.jpg | 第 10 張 | **直接彈出報名表** `openModal()` |
-
-`topN.jpg`、`top11.jpg` 目前未使用。
-
-替換圖片時**保持檔名**；若需改 YouTube／元氣網 URL，編輯 `a/index.html` 對應 `<a class="hero-slide-link">`。
+替換圖片時保持檔名；改 URL 請編輯 `a/index.html` 內對應 `<a class="hero-slide-link">`。

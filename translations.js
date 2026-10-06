@@ -96,7 +96,7 @@ const translations = {
         
         // 表單
         'modal-title': '🎉 立即獲取優惠',
-        'modal-subtitle': '填寫資料，開始你的「大腦活化 × 記憶訓練」之旅',
+        'modal-subtitle': '請留下可以聯絡的方式，細心的服務人員會致電關懷您（單位會保護您的個資，請放心）',
         'form-section-title': '📋 您的資料',
         'form-name': '姓名(實名制)',
         'form-name-placeholder': '請輸入您的全名',
@@ -212,7 +212,7 @@ const translations = {
         'faq-q4': '我（或家人）已经有诊断／正在看医生，也能吗？',
         'faq-a4': '可以把它当作「日常认知训练与生活节奏支持」，但不替代医疗；请同时遵从医嘱。',
         'modal-title': '🎉 立即获取优惠',
-        'modal-subtitle': '填写资料，开始你的「大脑活化 × 记忆训练」之旅',
+        'modal-subtitle': '请留下可以联络的方式，细心的服务人员会致电关怀您（单位会保护您的个资，请放心）',
         'form-section-title': '📋 您的资料',
         'form-name': '姓名(实名制)',
         'form-name-placeholder': '请输入您的全名',
@@ -326,7 +326,7 @@ const translations = {
         'faq-q4': 'I (or family) have a diagnosis / seeing a doctor, can I still use it?',
         'faq-a4': 'You can use it as "daily cognitive training and life rhythm support", but it doesn\'t replace medical treatment; please follow your doctor\'s advice.',
         'modal-title': '🎉 Get Your Offer Now',
-        'modal-subtitle': 'Fill in your information to start your "Brain Activation × Memory Training" journey',
+        'modal-subtitle': 'Please leave contact details you prefer. Our team will call to follow up. Your information is protected.',
         'form-section-title': '📋 Your Information',
         'form-name': 'Full Name (Real Name)',
         'form-name-placeholder': 'Please enter your full name',

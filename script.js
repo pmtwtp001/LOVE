@@ -635,7 +635,26 @@ function initVideoTracking() {
     }
 }
 
-/** 依 a/b/c 落地頁強制 hero 圖走各自 data/page-x/（避免三頁共用同一路徑或快取） */
+let _supportsWebp = null;
+
+function browserSupportsWebp() {
+    if (_supportsWebp !== null) return _supportsWebp;
+    try {
+        const canvas = document.createElement('canvas');
+        _supportsWebp = canvas.toDataURL('image/webp').startsWith('data:image/webp');
+    } catch (e) {
+        _supportsWebp = false;
+    }
+    return _supportsWebp;
+}
+
+function buildHeroImageUrl(assetDir, fileName, variant) {
+    const baseName = fileName.replace(/\.(jpe?g|webp)$/i, '');
+    const ext = browserSupportsWebp() ? '.webp' : '.jpg';
+    return assetDir + baseName + ext + '?v=' + variant;
+}
+
+/** 依 a/b/c 落地頁強制 hero 圖走各自 data/page-x/；僅首屏立即載入，其餘捲到附近再載 */
 function initLandingPageVariantAssets() {
     const body = document.body;
     if (!body) return;
@@ -654,14 +673,56 @@ function initLandingPageVariantAssets() {
 
     body.classList.add('landing-variant-' + variant.toLowerCase());
 
-    document.querySelectorAll('img.hero-top-image').forEach((img) => {
+    const heroes = document.querySelectorAll('img.hero-top-image');
+    heroes.forEach((img, index) => {
         const src = img.getAttribute('src') || '';
         const fileName = src.split('/').pop().split('?')[0];
         if (!fileName) return;
-        img.src = assetDir + fileName + '?v=' + variant;
+        const url = buildHeroImageUrl(assetDir, fileName, variant);
+
+        img.decoding = 'async';
+        if (index === 0) {
+            img.loading = 'eager';
+            if ('fetchPriority' in img) {
+                img.fetchPriority = 'high';
+            }
+            img.src = url;
+        } else {
+            img.loading = 'lazy';
+            img.dataset.src = url;
+            img.removeAttribute('src');
+        }
     });
 
-    console.log('📄 落地頁', variant, '| 素材目錄', assetDir);
+    initHeroImageLazyLoad();
+    console.log('📄 落地頁', variant, '| 素材目錄', assetDir, '| webp', browserSupportsWebp());
+}
+
+function initHeroImageLazyLoad() {
+    const pending = document.querySelectorAll('img.hero-top-image[data-src]');
+    if (!pending.length) return;
+
+    const loadHero = (img) => {
+        const url = img.dataset.src;
+        if (!url) return;
+        img.src = url;
+        img.removeAttribute('data-src');
+    };
+
+    if (!('IntersectionObserver' in window)) {
+        pending.forEach(loadHero);
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            loadHero(entry.target);
+            observer.unobserve(entry.target);
+        });
+    }, { rootMargin: '280px 0px', threshold: 0.01 });
+
+    pending.forEach((img) => observer.observe(img));
 }
 
 // 页面加载时初始化所有功能

@@ -178,6 +178,8 @@ body {
     background: var(--white);
     padding: 0;
     margin: 0;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 480px;
 }
 
 .hero-image-wrapper {
@@ -208,6 +210,11 @@ a.hero-slide-link .hero-top-image {
     width: 100%;
     height: auto;
     display: block;
+}
+
+img.hero-top-image:not([src]) {
+    min-height: 12rem;
+    background: #eee;
 }
 
 /* A/B/C 落地頁主標（各 html 的 .page-variant-headline 內容不同） */

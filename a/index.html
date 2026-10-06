@@ -71,128 +71,69 @@
     <section class="page-variant-headline" aria-label="主標">
         <div class="container">
             <p class="page-variant-label">A版｜預防失智</p>
-            <h1 class="page-variant-title">你害怕的，可能不是變老。是有一天，忘了自己最愛的人。</h1>
+            <h1 class="page-variant-title">你身邊的人開始重複問同樣的事、忘記剛說過的話、反應變慢……</h1>
         </div>
     </section>
 
-    <!-- 顶部主视觉图 -->
-    <div class="hero-image-section">
+    <!-- A 版長圖：第 1～10 張（整張可點；連結見 data/page-a/README.md） -->
+    <div class="hero-image-section" id="slide-1">
         <div class="hero-image-wrapper">
-            <a href="javascript:void(0)" onclick="openModal()" aria-label="立即報名">
-                <img src="/LOVE/data/page-a/topN.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
+            <a class="hero-slide-link" href="#slide-2" aria-label="先看真實分享，前往第 2 張">
+                <img src="/LOVE/data/page-a/top1.jpg" alt="開始擔心家人的記憶力？" class="hero-top-image" loading="lazy" width="1200" height="630">
             </a>
         </div>
     </div>
-    <div class="hero-image-section">
+    <div class="hero-image-section" id="slide-2">
         <div class="hero-image-wrapper">
-            <img src="/LOVE/data/page-a/top1.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
-        </div>
-    </div>
-    <!-- 第二頁主視覺圖 -->
-    <div class="hero-image-section">
-        <div class="hero-image-wrapper">
-            <img src="/LOVE/data/page-a/top2.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
-        </div>
-    </div>
-
-    <!-- 第三頁主視覺圖 -->
-    <div class="hero-image-section">
-        <div class="hero-image-wrapper">
-            <img src="/LOVE/data/page-a/top3.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
-        </div>
-    </div>
-
-    <!-- 第四頁主視覺圖 -->
-    <div class="hero-image-section">
-        <div class="hero-image-wrapper">
-            <a class="hero-link" href="https://www.youtube.com/watch?v=4GjrZCk_b_E&t=3s" target="_blank" rel="noopener noreferrer" aria-label="觀看影片">
-                <img src="/LOVE/data/page-a/top4.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630" onclick="window.open('https://www.youtube.com/watch?v=4GjrZCk_b_E&t=3s', '_blank')">
+            <a class="hero-slide-link" href="https://www.youtube.com/watch?v=lxXH1icswmE" target="_blank" rel="noopener noreferrer" aria-label="觀看完整見證影片">
+                <img src="/LOVE/data/page-a/top2.jpg" alt="先聽聽，他們怎麼說" class="hero-top-image" loading="lazy" width="1200" height="630">
             </a>
         </div>
     </div>
-
-    <!-- 第五頁主視覺圖 -->
-    <div class="hero-image-section">
+    <div class="hero-image-section" id="slide-3">
         <div class="hero-image-wrapper">
-            <a href="javascript:void(0)" onclick="openModal()" aria-label="立即報名">
-                <img src="/LOVE/data/page-a/top5.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
+            <img src="/LOVE/data/page-a/top3.jpg" alt="認識巫奉約，從他的故事開始" class="hero-top-image" loading="lazy" width="1200" height="630">
+        </div>
+    </div>
+    <div class="hero-image-section" id="slide-4">
+        <div class="hero-image-wrapper">
+            <a class="hero-slide-link" href="https://health.udn.com/health/story/10696/8235752" target="_blank" rel="noopener noreferrer" aria-label="觀看元氣最愛問節目訪談">
+                <img src="/LOVE/data/page-a/top4.jpg" alt="關於腦健康，多了解一點" class="hero-top-image" loading="lazy" width="1200" height="630">
             </a>
         </div>
     </div>
-
-    <!-- 第六頁主視覺圖 -->
-    <div class="hero-image-section">
+    <div class="hero-image-section" id="slide-5">
         <div class="hero-image-wrapper">
-            <img src="/LOVE/data/page-a/top6.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
+            <img src="/LOVE/data/page-a/top5.jpg" alt="透過活動，讓練習有參與感" class="hero-top-image" loading="lazy" width="1200" height="630">
+        </div>
+    </div>
+    <div class="hero-image-section" id="slide-6">
+        <div class="hero-image-wrapper">
+            <img src="/LOVE/data/page-a/top6.jpg" alt="關心家人，也關心陪伴的人" class="hero-top-image" loading="lazy" width="1200" height="630">
         </div>
     </div>
 
-    <!-- 目标受众区 -->
-    <!--<section class="target-audience">
-        <div class="container">
-            <h2 class="section-title" data-i18n="target-audience-title">誰適合與需要？</h2>
-            <div class="audience-grid">
-                <div class="audience-card">
-                    <h3 data-i18n="audience-1-title">高壓腦力工作者</h3>
-                    <p data-i18n="audience-1-subtitle">主管／行政／會計／業務／創作者／老師</p>
-                    <p data-i18n="audience-1-text">
-                        🌍 你不是不努力，是大腦長期超載。
-                        這套系統把訓練拆成->專注、記憶、提取練習＋簡單可做的護腦習慣，讓你工作更清晰、情緒更穩。</p>
-                
-                </div>
-                <div class="audience-card">
-                    <h3 data-i18n="audience-2-title">容易健忘、想提升記憶的你</h3>
-                    <p data-i18n="audience-2-subtitle">常忘東忘西／容易分心／講到一半忘了要說什麼</p>
-                    <!--<p data-i18n="audience-2-text">🌍 你需要的不是硬背，而是「記憶策略＋練習節奏」。我們用題庫與日常情境，讓你把記憶力用回來。
-                
-                </div>
-                <div class="audience-card">
-                    <h3 data-i18n="audience-3-title">需要大量學習與記憶的人</h3>
-                       <p data-i18n="audience-3-subtitle">學生／上班族／自學者／考試族</p>
-                       <p data-i18n="audience-3-text">🌍 你最需要的是：可落地、可陪做、可追蹤。我們把訓練設計成「AI流程」。</p>
-                
-                </div>
-                <div class="audience-card">
-                    <h3 data-i18n="audience-4-title">重視健康與預防的你</h3>
-                    <p data-i18n="audience-4-subtitle">開始在意認知保健、想建立護腦習慣</p>
-                     <!--<p data-i18n="audience-4-text">🌍 這套系統把「運動、睡眠、壓力調節、社交刺激、腦力訓練」整理成一張可執行清單，幫你把健康真正做進生活裡。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 第七頁主視覺圖 -->
-    <div class="hero-image-section">
+    <div class="hero-image-section" id="slide-7">
         <div class="hero-image-wrapper">
-            <img src="/LOVE/data/page-a/top7.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
+            <a class="hero-slide-link" href="https://health.udn.com/health/story/5999/8928752" target="_blank" rel="noopener noreferrer" aria-label="閱讀元氣網論壇報導">
+                <img src="/LOVE/data/page-a/top7.jpg" alt="從公開分享，了解他的觀點" class="hero-top-image" loading="lazy" width="1200" height="630">
+            </a>
         </div>
     </div>
-
-    <!-- 第八頁主視覺圖 -->
-    <div class="hero-image-section">
+    <div class="hero-image-section" id="slide-8">
         <div class="hero-image-wrapper">
-            <img src="/LOVE/data/page-a/top8.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
+            <img src="/LOVE/data/page-a/top8.jpg" alt="一起參與，一起練習" class="hero-top-image" loading="lazy" width="1200" height="630">
         </div>
     </div>
-
-    <!-- 第九頁主視覺圖 -->
-    <div class="hero-image-section">
+    <div class="hero-image-section" id="slide-9">
         <div class="hero-image-wrapper">
-            <img src="/LOVE/data/page-a/top9.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
+            <img src="/LOVE/data/page-a/top9.jpg" alt="把腦健康的關心，帶到更多地方" class="hero-top-image" loading="lazy" width="1200" height="630">
         </div>
     </div>
-    <!-- 第十頁主視覺圖 -->
-    <div class="hero-image-section">
+    <div class="hero-image-section" id="slide-10">
         <div class="hero-image-wrapper">
-            <img src="/LOVE/data/page-a/top10.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
-        </div>
-    </div>
-
-    <!-- 第十一頁主視覺圖 -->
-    <div class="hero-image-section">
-        <div class="hero-image-wrapper">
-            <a href="javascript:void(0)" onclick="openModal()" aria-label="立即報名">
-                <img src="/LOVE/data/page-a/top11.jpg" alt="AI身腦齡活學院" class="hero-top-image" loading="lazy" width="1200" height="630">
+            <a class="hero-slide-link" href="javascript:void(0)" role="button" onclick="openModal(); return false;" aria-label="報名免費諮詢">
+                <img src="/LOVE/data/page-a/top10.jpg" alt="正式實體課程 NT$3,600" class="hero-top-image" loading="lazy" width="1200" height="630">
             </a>
         </div>
     </div>
@@ -327,7 +268,7 @@
     </div>
 
     <script src="/LOVE/translations.js?v=2024112202" defer></script>
-    <script src="/LOVE/script.js?v=2025033001" defer></script>
+    <script src="/LOVE/script.js?v=2025033002" defer></script>
 </body>
 </html>
 

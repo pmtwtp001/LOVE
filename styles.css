@@ -196,6 +196,20 @@ body {
     object-fit: cover;
 }
 
+/* A/B/C 長圖整張可點 */
+a.hero-slide-link {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    line-height: 0;
+}
+
+a.hero-slide-link .hero-top-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* A/B/C 落地頁主標（各 html 的 .page-variant-headline 內容不同） */
 .page-variant-headline {
     background: linear-gradient(180deg, #fff 0%, #f8f9fa 100%);

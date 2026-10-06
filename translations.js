@@ -473,6 +473,14 @@ function updatePageLanguage(lang) {
 // 根據語言更新社交媒體分享圖片
 function updateSocialMediaImage(lang) {
     console.log('🖼️ updateSocialMediaImage 被調用，語言參數:', lang);
+
+    const assetDir = document.body && document.body.getAttribute('data-asset-dir');
+    if (assetDir) {
+        const imageUrl = window.location.origin + assetDir + 'med.jpg';
+        applySocialShareImageUrl(imageUrl);
+        console.log('✅ 落地頁使用各版 med.jpg:', imageUrl);
+        return;
+    }
     
     // 根據語言選擇圖片
     let imageName;
@@ -492,34 +500,21 @@ function updateSocialMediaImage(lang) {
     
     const baseUrl = 'https://ifittw01-ai.github.io/Love/data/';
     const imageUrl = baseUrl + imageName;
-    
-    // 更新 Open Graph 圖片（Facebook、LINE 等會讀取）
+    applySocialShareImageUrl(imageUrl);
+    console.log('✅ 已更新 og:image 為:', imageName);
+}
+
+function applySocialShareImageUrl(imageUrl) {
     const ogImage = document.querySelector('meta[property="og:image"]');
     const ogImageSecure = document.querySelector('meta[property="og:image:secure_url"]');
-    
-    if (ogImage) {
-        ogImage.setAttribute('content', imageUrl);
-        console.log('✅ 已更新 og:image 為:', imageName);
-    }
-    
-    if (ogImageSecure) {
-        ogImageSecure.setAttribute('content', imageUrl);
-    }
-    
-    // 更新 LINE 專用圖片
+    if (ogImage) ogImage.setAttribute('content', imageUrl);
+    if (ogImageSecure) ogImageSecure.setAttribute('content', imageUrl);
+
     const lineImage = document.querySelector('meta[name="line:image"]');
-    if (lineImage) {
-        lineImage.setAttribute('content', imageUrl);
-        console.log('✅ 已更新 LINE 圖片為:', imageName);
-    }
-    
-    // 更新 Twitter Card 圖片
+    if (lineImage) lineImage.setAttribute('content', imageUrl);
+
     const twitterImage = document.querySelector('meta[name="twitter:image"]');
-    if (twitterImage) {
-        twitterImage.setAttribute('content', imageUrl);
-    }
-    
-    // 僅更新社群分享圖片；頁面上的圖片不變
+    if (twitterImage) twitterImage.setAttribute('content', imageUrl);
 }
 
 // 初始化語言

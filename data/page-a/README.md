@@ -19,4 +19,6 @@
 
 替換圖片時保持檔名；改 URL 請編輯 `a/index.html`。
 
+**社群分享預覽（LINE / Facebook / Twitter）：** `med.jpg`（`a/index.html` 的 og:image 等 meta 指向此檔）
+
 **效能：** 寬度 ≤1200px、JPG 約 80 品質；同名 `.webp` 供支援的瀏覽器使用。

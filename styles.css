@@ -245,35 +245,6 @@ a.hero-slide-link--cta:hover .hero-slide-cta-button {
     filter: brightness(1.05);
 }
 
-/* A 版 top1：整張報名，底部「先看真實分享」捲動至第 2 張 */
-a.hero-slide-share-link {
-    position: absolute;
-    left: 50%;
-    bottom: 6%;
-    transform: translateX(-50%);
-    z-index: 3;
-    display: block;
-    width: min(90%, 22rem);
-    min-height: 2.75rem;
-    padding: 0.5rem 1rem;
-    font-size: clamp(0.95rem, 3.2vw, 1.125rem);
-    font-weight: 700;
-    line-height: 1.35;
-    text-align: center;
-    text-decoration: none;
-    color: transparent;
-    background: transparent;
-    border-radius: 6px;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-}
-
-a.hero-slide-share-link:hover,
-a.hero-slide-share-link:focus-visible {
-    outline: 2px solid rgba(255, 255, 255, 0.85);
-    outline-offset: 2px;
-}
-
 img.hero-top-image:not([src]) {
     min-height: 12rem;
     background: #eee;

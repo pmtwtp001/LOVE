@@ -4,7 +4,7 @@
 
 | 張 | 檔名 | 點整張圖 |
 |----|------|----------|
-| 1 | top1.jpg | 整張報名 `openModal()`；底部「先看真實分享」→ `#slide-2` |
+| 1 | top1.jpg | 站內 `#slide-2`（先看真實分享） |
 | 2 | top2.jpg | https://www.youtube.com/watch?v=OBAz-XEAZ2A |
 | 3 | top3.jpg | https://www.youtube.com/watch?v=lxXH1icswmE（按鈕：觀看實際操作） |
 | 4 | top4.jpg | https://health.udn.com/health/video/page/228 |

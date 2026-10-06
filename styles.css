@@ -245,6 +245,10 @@ a.hero-slide-link--cta:hover .hero-slide-cta-button {
     filter: brightness(1.05);
 }
 
+#slide-3 .hero-slide-cta-button {
+    bottom: 20%;
+}
+
 img.hero-top-image:not([src]) {
     min-height: 12rem;
     background: #eee;

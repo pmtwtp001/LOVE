@@ -287,6 +287,24 @@ function openModal() {
     const modal = document.getElementById('orderModal');
     modal.classList.add('show');
     document.body.style.overflow = 'hidden'; // 防止背景滚动
+    ensureDefaultRegionsReady();
+}
+
+/** 預設台灣並載入評估時間地點（不需再點國家卡片） */
+function ensureDefaultRegionsReady() {
+    const countryInput = document.getElementById('country');
+    if (countryInput) {
+        countryInput.value = '台灣 Taiwan';
+    }
+    const twCard = document.querySelector('#country-cards .option-card[data-country-code="TW"]');
+    if (twCard) {
+        twCard.classList.add('active');
+    }
+    const grid = document.getElementById('region-cards');
+    const hasRegionOptions = grid && grid.querySelector('button.option-card');
+    if (!hasRegionOptions) {
+        loadRegionCards(getSelectedCountryCode());
+    }
 }
 
 // 关闭模态框
@@ -668,7 +686,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 🕒 初始化右上角時間地點選單
     initHeaderLocationSelect();
     
-    // ⚠️ 不再默认加载，等用户选择国家后再加载
 });
 
 // 监听页面可见性变化，暂停/恢复倒计时
@@ -815,11 +832,12 @@ function resetFormCardSelectors() {
 function initFormCardSelectors() {
     const countryCards = document.getElementById('country-cards');
     const regionCards = document.getElementById('region-cards');
-    if (!countryCards || !regionCards) {
-        console.warn('⚠️ 找不到國家或地區卡片元素');
+    if (!regionCards) {
+        console.warn('⚠️ 找不到地區卡片元素');
         return;
     }
 
+    if (countryCards) {
     countryCards.querySelectorAll('.option-card').forEach(card => {
         card.addEventListener('click', () => {
             countryCards.querySelectorAll('.option-card').forEach(item => item.classList.remove('active'));
@@ -836,8 +854,9 @@ function initFormCardSelectors() {
             loadHeaderLocationOptions(countryCode);
         });
     });
+    }
 
-    loadRegionCards('TW');
+    ensureDefaultRegionsReady();
     console.log('✅ 國家-地區卡片選擇已初始化');
 }
 
